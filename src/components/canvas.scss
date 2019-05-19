@@ -1,4 +1,7 @@
 canvas{
-    border: 1px solid;
-    transform: scale(.9)
+    display: block;
+    box-sizing: border-box;
+    background: blueviolet !important;
+    // transform: scale(.9)
+
 }
