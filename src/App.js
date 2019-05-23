@@ -1,7 +1,16 @@
 import React from "react"
-import "./App.css"
-import Canvas from "./components/canvas"
+import "./scss/App.scss"
+// import BrowserWindow from "./components/browserWindow"
+// import Canvas from "./components/canvas"
+import Scene from "./components/Scene.js"
 
 export default function App() {
-  return <Canvas />
+  return (
+    <>
+      {/* <BrowserWindow /> */}
+      {/* <Canvas /> */}
+      <Scene/>
+
+    </>
+  )
 }

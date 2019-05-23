@@ -1,9 +1,8 @@
 import React from "react"
-import videoSrc from "../assets/emojis.mp4"
 import "../utils/requestAnimationFrame.js"
-import { getMousePos } from "../utils/functions"
+import { getMousePos, debounce } from "../utils/functions"
 import Emoji from "./emoji"
-import "./canvas.scss"
+import "../scss/canvas.scss"
 
 export default class Canvas extends React.Component {
   constructor(...props) {
@@ -12,54 +11,39 @@ export default class Canvas extends React.Component {
     this.video = React.createRef()
   }
   componentDidMount() {
-    const video = this.video.current
     const canvas = this.canvas.current
-    resizeCanvas()
+
     function resizeCanvas() {
       canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      canvas.height = window.innerHeight/1.6
+      Emoji.generate(canvas,7)
     }
-
-    video.addEventListener("loadedmetadata", function() {
-      Emoji.generate(canvas)
-      video.play()
-    })
-    window.addEventListener("resize", function() {
+    resizeCanvas()
+    var myEfficientFn = debounce(function() {
       resizeCanvas()
-      Emoji.generate(canvas)
-    })
+    }, 250)
 
-    video.addEventListener("play", function() {
-      var $this = this //cache
-      function loop() {
-        if (!$this.paused) {
-          Emoji.video = $this
-          Emoji.render()
-          requestAnimationFrame(loop)
-        }
-      } //loop
-      requestAnimationFrame(loop)
-    })
+    window.addEventListener("resize", myEfficientFn)
   } //componentd did mount
 
-  handleClick = (e)=>{
+  handleMouseDown = e => {
     let { x, y } = getMousePos(this.canvas.current, e.nativeEvent)
-    console.log(e.nativeEvent)
+    Emoji.generate(this.canvas.current,7)
 
-    Emoji.getEmojis.forEach(emoji => {
-      emoji.move(x, y)
+    Emoji.emojiList.forEach(emoji => {
+      emoji.go(x, y)
     })
-
-    Emoji.createEmojis(this.canvas.current)
   } //handle click
 
   render() {
     return (
-      <canvas ref={this.canvas} onClick={this.handleClick}>
+      <canvas
+        ref={this.canvas}
+        onMouseDown={this.handleMouseDown}
+        width={window.innerWidth}
+        height={window.innerHeight}
+      >
         Please use Chrome for the best experience
-        <video ref={this.video} loop muted autoPlay poster="">
-          <source src={videoSrc} type="video/mp4" />
-        </video>
       </canvas>
     )
   }
