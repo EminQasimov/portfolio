@@ -1,7 +1,7 @@
 import React from "react"
 import "../utils/requestAnimationFrame.js"
 import { getMousePos, debounce } from "../utils/functions"
-import Emoji from "./emoji"
+import Emoji from "./Emoji"
 import "../scss/canvas.scss"
 
 export default class Canvas extends React.Component {

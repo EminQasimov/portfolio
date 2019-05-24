@@ -1,0 +1,68 @@
+.scene-container {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  max-height: 1266px;
+  margin: 0 auto;
+  background: url(../assets/cut.jpg) center bottom / 100% auto repeat-y;
+  perspective: 200px;
+
+  &:hover {
+    img {
+      animation: back-in 2.5s ease-in-out forwards;
+    }
+    .imac {
+      animation: zoom-in 2.5s ease-in-out forwards;
+    }
+  }
+  img {
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transform: scale(1.1);
+    transform-origin: center bottom;
+    animation: back-out 2.5s ease-in forwards;
+  }
+  .imac {
+    z-index: 1999;
+    position: absolute;
+    transform: translateX(-50%) scale(0.6) translateZ(70px);
+    left: 50%;
+    bottom: 0px;
+    animation: zoom-out 2.5s ease-in forwards;
+  }
+}
+
+@keyframes zoom-in {
+  to {
+    transform: translateX(-50%) scale(0.7) translateZ(110px);
+  }
+}
+
+@keyframes zoom-out {
+  from{
+    transform: translateX(-50%) scale(0.7) translateZ(110px);
+  }
+  to {
+    transform: translateX(-50%) scale(0.6) translateZ(70px);
+  }
+}
+
+@keyframes back-in {
+  to {
+    transform: scale(1);
+    filter: blur(3px);
+  }
+}
+
+@keyframes back-out {
+  from {
+    transform: scale(1);
+    filter: blur(3px);
+  }
+  to {
+    transform: scale(1.1);
+    filter: blur(0px);
+  }
+}

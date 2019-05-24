@@ -1,6 +1,5 @@
 import React from "react"
 import "../scss/browserWindow.scss"
-// import styled from "styled-components"
 import { Row, Col, Menu, List, Avatar, Card } from "antd"
 
 import { Facebook } from "styled-icons/fa-brands/Facebook"

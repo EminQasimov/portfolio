@@ -1,11 +1,13 @@
- 
-
- @import "./normalize";
-
- 
- body{
-     font-size: 65.2%;
-     font-family: sans-serif;
-     box-sizing: border-box;
-     overflow: hidden;
- }
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body {
+  font-size: 65.2%;
+  font-family: sans-serif;
+  box-sizing: border-box;
+//   overflow-x: hidden;
+}

@@ -1,16 +1,15 @@
 import React from "react"
 import "./scss/App.scss"
-// import BrowserWindow from "./components/browserWindow"
-// import Canvas from "./components/canvas"
-import Scene from "./components/Scene.js"
+import FirefoxBrowserFrame from "./components/browserMock/FirefoxBrowserFrame"
+// import Canvas from "./components/Canvas"
 
 export default function App() {
   return (
-    <>
-      {/* <BrowserWindow /> */}
-      {/* <Canvas /> */}
-      <Scene/>
+   <div style={{padding: "50px",width:"100vw",height: "100vh"}}>
+        <FirefoxBrowserFrame />
+   </div>
+      
 
-    </>
+    
   )
 }
