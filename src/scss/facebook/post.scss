@@ -1,0 +1,72 @@
+$myimg: "https://s.cdpn.io/profiles/user/2961445/80.jpg?1553082357";
+$facebook-blue: #1978f6;
+ 
+
+
+.preloader {
+  height: 300px;
+  background-image: linear-gradient( to left, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%) !important;
+  background-repeat: no-repeat;
+  background-size: 800px 100%;
+  animation: placeHolderShimmer 2s linear infinite forwards;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+  100% {
+    background-position: 468px 0
+  }
+}
+
+.facebook-post {
+  background: #fff;
+  width: 100%;
+  margin: 1.4em auto;
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgb(216, 216, 216);
+
+  .post-head {
+    display: flex;
+    align-items: center;
+    height: 6.5em;
+    padding: 1.2em;
+    margin: 0 auto;
+    img {
+      width: 3.4em;
+      height: 3.4em;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 3px $facebook-blue;
+    }
+    .author {
+      flex: 1;
+      margin: 1em;
+      .name {
+        color: #4665a1;
+        font-size: 1.4em;
+        font-weight: 700;
+      }
+      .time {
+        color: #666;
+        font-size: 1.2em;
+        font-weight: 500;
+      }
+    }
+    .dots {
+      width: 25px;
+      height: 16px;
+      background: url(../../../assets/facebook-sprite.png) -69px -65px/132px
+        183px no-repeat;
+      transform: scale(0.7);
+    }
+  } //head
+
+  .post-body {
+    background: #fff;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+}

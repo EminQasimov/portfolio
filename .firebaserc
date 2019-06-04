@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "emin-qasimov",
+    "eminqasimov-deploy": "emin-qasimov"
+  }
+}

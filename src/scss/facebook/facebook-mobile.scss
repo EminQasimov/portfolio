@@ -1,0 +1,337 @@
+$myimg: "https://s.cdpn.io/profiles/user/2961445/80.jpg?1553082357";
+$avatar: "https://i.pravatar.cc/64?img=";
+$photo1: "https://images.unsplash.com/photo-1558417942-4aca90f81642?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
+$photo2: "https://images.unsplash.com/photo-1558333115-fe12aa457af8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
+$photo3: "https://images.unsplash.com/photo-1558281050-4c33200099c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
+$photo4: "https://images.unsplash.com/photo-1558298336-360a2280e580?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
+$photo5: "https://images.unsplash.com/photo-1526237377175-22e94a1ed9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
+$facebook-blue: #1978f6;
+$gray: #ececf0;
+
+#facebook {
+  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+  header {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 1px -1px rgb(223, 221, 221);
+    position: relative;
+    z-index: 9;
+
+    & > div {
+      height: 5em;
+      padding: 1em;
+    }
+    .logo-search {
+      flex: 1;
+      background: #fff;
+      display: flex;
+      align-items: center;
+
+      .logo {
+        width: 3.4em;
+        height: 3.4em;
+        padding: 1em 0px;
+        overflow: hidden;
+        border-radius: 50%;
+        display: inline-block;
+        text-align: center;
+        background-image: linear-gradient(#82cff8, #056de4);
+        margin-right: 1em;
+        svg {
+          display: inline-block;
+          width: 2.6em;
+          height: 2.6em;
+          color: #fff;
+        }
+      }
+      .search-wrapper {
+        flex: 1;
+        position: relative;
+        height: 3.4em;
+
+        .search {
+          width: 100%;
+          display: inline-block;
+          height: 100%;
+          padding: 1em 2.3em;
+          border: none;
+          border-radius: 40px;
+          background: $gray;
+          color: #000;
+          font-size: 130%;
+          position: absolute;
+          &:focus {
+            outline: none;
+          }
+        }
+
+        span.search-icon {
+          content: " ";
+          display: inline-block;
+          width: 2em;
+          height: 2em;
+          position: absolute;
+          z-index: 9;
+          top: 0.7em;
+          left: 0.8em;
+        }
+      }
+    }
+
+    .setting {
+      background: #fff;
+      text-align: right;
+      span {
+        width: 2.8em;
+        height: 2.8em;
+        background: #ddd;
+        border-radius: 50%;
+        display: inline-block;
+        padding-top: 0.4em;
+        text-align: center;
+        svg {
+          width: 2em;
+          height: 2em;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+
+  } // .main
+} //#facebook
+ 
+.fb-middle {
+  width: 100%;
+  background: $gray;
+  box-shadow: 1px 0px 1px rgb(223, 221, 221),
+    -1px 0px 1px rgb(223, 221, 221);
+  height: calc(100% - 9em);
+  & > div > div{
+    overflow-x: hidden !important;
+  }
+  .story-wrapper {
+    margin: 1em;
+    overflow: hidden;
+    height: 18em;
+
+    h1 {
+      display: flex;
+      align-items: center;
+      font-weight: 100;
+      text-shadow: 0 0 1px #585757;
+      font-size: 1.5em;
+      &::after {
+        content: "See All";
+        display: block;
+        font-size: 11px;
+        color: $facebook-blue;
+        margin-left: auto;
+      }
+    }
+    ul.stories {
+      white-space: nowrap;
+      width: 100%;
+      overflow-x: scroll;
+
+      li.story {
+        box-shadow: 0 2px 3px -1px rgb(139, 139, 139),
+          inset 0 0 0 100em rgba(0, 0, 0, 0.2);
+        border-radius: 0.8em;
+        display: inline-block;
+        list-style: none;
+        width: 10em;
+        height: 16em;
+        margin: 0.3em;
+        background: url($photo1) center / cover no-repeat;
+        overflow: hidden;
+        position: relative;
+        font-family: Helvetica, sans-serif;
+        &::before {
+          content: " + ";
+          display: inline-block;
+          width: 2em;
+          height: 2em;
+          border-radius: 2em;
+          border: 2px solid rgb(255, 255, 255);
+          color: #fff;
+          font-weight: 100;
+          box-shadow: inset 0 0 0 2em rgba(20, 20, 20, 0.2);
+          margin: 0em;
+          text-align: center;
+          line-height: 2em;
+          font-size: 3em;
+          transform: scale(0.6);
+        }
+        &::after {
+          content: "Emin Qasimov";
+          display: block;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          color: #fff;
+          opacity: 0.8;
+          text-align: center;
+          font-size: 1.2em;
+          margin-bottom: 0.7em;
+          text-shadow: 0 0 50px #000, 0 0 50px #000, 0 0 50px #000,
+            0 0 50px #000;
+        }
+        @for $i from 2 through 6 {
+          &:nth-child(#{$i})::before {
+            content: "\00a0 ";
+            background: url($avatar+$i) center / cover no-repeat;
+          }
+        }
+
+        &:nth-child(1) {
+          background-image: url(../assets/emin.jpg);
+        }
+        &:nth-child(2) {
+          background-image: url($photo2);
+        }
+        &:nth-child(3) {
+          background-image: url($photo3);
+        }
+        &:nth-child(4) {
+          background-image: url($photo4);
+        }
+        &:nth-child(5) {
+          background-image: url($photo2);
+        }
+        &:nth-child(6) {
+          background-image: url($photo5);
+        }
+
+        &:nth-child(2)::after {
+          content: "Richard Stally";
+        }
+        &:nth-child(3)::after {
+          content: "Brendan Moon";
+        }
+        &:nth-child(4)::after {
+          content: "Quido Russian";
+        }
+        &:nth-child(5)::after {
+          content: "Torvaldes Kevin";
+        }
+        &:nth-child(6)::after {
+          content: "Lius Fernaddo";
+        }
+      }
+    }
+  } //stori wrapper
+
+  .fb-send {
+    margin: 2em;
+    display: flex;
+    text-align: center;
+    border-radius: 0.7em;
+    background: #fff;
+    height: 5em;
+    align-items: center;
+    padding: 1.2em;
+    box-shadow: 0 1px 1px rgb(216, 216, 216);
+    .post-profile {
+      width: 3.6em;
+      height: 3.6em;
+      background: url($myimg) center / cover no-repeat;
+      border-radius: 50%;
+    }
+    .send-input {
+      flex: 1;
+      background: #f2f3f5;
+      height: 2.2em;
+      font-size: 1.4em;
+      line-height: 2.2em;
+      border-radius: 0.6em;
+      margin: 0 0.5em;
+    }
+    .send-button {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+  } //send a post
+
+  .fb-posts {
+    margin: 1em;
+    margin-bottom: 3.5em;
+    border-radius: 0.7em;
+  }
+} // fb middle
+
+// post scss ------------------------------- 
+.preloader {
+  height: 300px;
+  background-image: linear-gradient(to left, #ffffff 0%, rgba(53, 53, 53, 0.1) 50%, #ffffff 100%) !important;
+  background-repeat: no-repeat !important;
+  background-size: 900px 100%;
+  animation: placeHolderShimmer 2s ease-in-out infinite forwards;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -800px 0
+  }
+  100% {
+    background-position: 800px 0
+  }
+}
+
+.facebook-post {
+  background: #fff;
+  width: 100%;
+  margin: 2em auto;
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgb(216, 216, 216);
+
+  .post-head {
+    display: flex;
+    align-items: center;
+    height: 6.5em;
+    padding: 1.2em;
+    margin: 0 auto;
+    img {
+      width: 3.4em;
+      height: 3.4em;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 3px $facebook-blue;
+    }
+    .author {
+      flex: 1;
+      margin: 1em;
+      .name {
+        color: #4665a1;
+        font-size: 1.4em;
+        font-weight: 700;
+      }
+      .time {
+        color: #666;
+        font-size: 1.2em;
+        font-weight: 500;
+      }
+    }
+    .dots {
+      width: 2.5em;
+      height: 2.5em;
+      opacity: 0.8;
+    }
+  } //head
+
+  .post-body {
+    background: #fff;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+}

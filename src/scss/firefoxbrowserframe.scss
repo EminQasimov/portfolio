@@ -4,27 +4,34 @@ $max: #24cc3e;
 $firefox-blue: #008afb;
 
 #FirefoxBrowserFrame {
-  width: 100%;
-  height: 100%;
   border-radius: 1.5em;
+  width: 500px;
+  height: 600px;
   overflow: hidden;
-  box-shadow: 0 8px 50px -30px rgb(105, 105, 105);
-  @media (max-width: 700px) {
+  margin: 0 auto;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 999;
+  font-family: Helvetica;
+  @media (max-width: 768px) {
     font-size: 0.8em;
-  }
-  @media (max-width: 500px) {
-    font-size: 0.77em;
+    border-radius: 0 !important;
+
     .content {
-      height: calc(100% - 4.5em) !important;
+      height: calc(100% - 4em) !important;
     }
+    .tabbar{
+      display: none !important
+    }
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.77em;
   }
   .tabbar {
     background: $firefox-blue;
     display: flex;
     align-items: center;
-    @media (max-width: 500px) {
-      display: none;
-    }
     .tab-buttons {
       width: 10em;
       height: 4.8em;
@@ -54,7 +61,8 @@ $firefox-blue: #008afb;
       background: lighten($firefox-blue, 17%);
       border-radius: 1em 1em 0 0;
       transform: perspective(20em) rotateX(50deg) translateY(1.5em);
-      box-shadow: 2.7em 1.3em 0 -2em  lighten($firefox-blue, 17%), -2.7em 1.3em 0 -2em lighten($firefox-blue, 17%);
+      box-shadow: 2.7em 1.3em 0 -2em lighten($firefox-blue, 17%),
+        -2.7em 1.3em 0 -2em lighten($firefox-blue, 17%);
 
       &::after {
         content: " ";
@@ -62,8 +70,8 @@ $firefox-blue: #008afb;
         height: 1.5em;
         display: block;
         position: relative;
-        border-radius: .5em;
-        background: #008afb;
+        border-radius: 0.5em;
+        background: $firefox-blue;
         bottom: -1.1em;
         left: 18em;
         transform: skewX(-1deg);
@@ -74,12 +82,11 @@ $firefox-blue: #008afb;
         height: 1.5em;
         display: block;
         position: relative;
-        border-radius: .5em;
-        background: #008afb;
+        border-radius: 0.5em;
+        background: $firefox-blue;
         bottom: -2.6em;
         right: 1.5em;
         transform: skewX(-1deg);
-
       }
     }
     span.close {
@@ -104,8 +111,9 @@ $firefox-blue: #008afb;
     background: lighten($firefox-blue, 17%);
     position: relative;
     z-index: 9;
+    top: -1px;
     .buttons {
-      height: 4.5em;
+      height: 4em;
       width: 10em;
       text-align: center;
       display: flex;
@@ -129,21 +137,23 @@ $firefox-blue: #008afb;
       }
     }
     .searchinput {
-      height: 4.5em;
+      height: 4em;
       flex: 1;
-      padding: 0.8em 0;
+      padding: 0.5em 0;
       display: flex;
       input {
         display: inline-block;
-        border-radius: 0.5em;
+        border-radius: 0.3em;
         height: 100%;
         width: 100%;
         border: none;
         font-size: 1.3em;
         text-indent: 0.8em;
         opacity: 0.8;
+        transition: opacity 0.3s ease-in;
         &:focus {
           outline: none;
+          opacity: 1;
         }
       }
       span {
@@ -157,18 +167,19 @@ $firefox-blue: #008afb;
       }
     }
     .menuicon {
-      height: 4.5em;
+      height: 4em;
       width: 4.5em;
       padding: 0.8em 1em;
       opacity: 0.4;
-      line-height: 3em;
+      line-height: 2em;
       color: darken($firefox-blue, 30%);
     }
   } // searchar
 
   .content {
-    height: calc(100% - 4.8em - 4.5em);
+    height: calc(100% - 4.8em - 4em + 1px);
     background: #fff;
+    margin-top: -1px;
     overflow-x: hidden;
   }
 }

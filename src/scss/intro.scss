@@ -1,0 +1,210 @@
+@import "./facebook/facebook-mobile.scss";
+
+.intro {
+  color: $white;
+  overflow: hidden;
+  background: linear-gradient(125deg, red 0%, $yellow 100%);
+  min-height: 100vh;
+  position: relative;
+  .container {
+    height: 100%;
+    position: relative;
+  }
+  aside.left {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    z-index: 999;
+    & > div {
+      flex: 1;
+    }
+    div:nth-child(2) {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+  .menu-list {
+    li {
+      display: inline-block;
+      margin-right: 2em;
+      a {
+        font-size: 1.6em;
+        display: block;
+        color: inherit;
+        padding: 2em 1em;
+        transition: color 0.2s ease;
+        &:hover {
+          color: $yellow;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &:first-child {
+        a {
+          padding-left: 0;
+        }
+      }
+    }
+  } //menu list
+  h1 {
+    font-size: calc(5em + 1vw);
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 2.5em;
+    opacity: 0.7;
+    font-weight: 400;
+  }
+  .cv-buttons {
+    span {
+      color: $black;
+      display: inline-block;
+      font-size: 1.4em;
+      font-weight: 700;
+      padding: 0.6em;
+      opacity: 0.7;
+    }
+  }
+  button {
+    border: none;
+    font-family: inherit;
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 4em;
+    font-weight: 700;
+    width: 12em;
+    height: 3.2em;
+    line-height: 3.2em;
+    font-size: 1.4em;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    opacity: 0.94;
+    transform: scale(0.99);
+
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      opacity: 1;
+      transform: scale(0.94);
+    }
+    svg {
+      width: 2em;
+      height: 2em;
+      margin-right: 0.5em;
+    }
+  }
+  .view-cv {
+    color: $black;
+    background: $yellow;
+    svg {
+      margin-right: 0;
+    }
+    &:hover {
+      cursor: pointer;
+      color: $yellow;
+      background: $black;
+    }
+  }
+  .download-cv {
+    background: $white;
+    color: $black;
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+      color: $white;
+      background: $black;
+    }
+  }
+  .social-buttons {
+    li {
+      display: inline-block;
+      font-size: 2em;
+      width: 2.6em;
+      height: 2.6em;
+      text-align: center;
+      line-height: 2.6em;
+      border-radius: 50%;
+      background: $black;
+      margin-right: 0.5em;
+      transition: all 0.2s ease-in-out;
+      opacity: 0.94;
+      transform: scale(0.99);
+      svg {
+        width: 1.8em;
+        height: 1.8em;
+      }
+      &:hover {
+        cursor: pointer;
+        opacity: 1;
+        background: $yellow;
+        color: $black;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:active {
+        opacity: 1;
+        transform: scale(0.94);
+      }
+    }
+  }
+
+  aside.right {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    height: 50%;
+    pointer-events: none;
+    div {
+      border-radius: 50%;
+      position: absolute;
+    }
+    .circle {
+      margin-left: calc(100% - 28vw);
+      top: calc(50% - 14vw);
+      width: 28vw;
+      height: 28vw;
+      background: #fff;
+      opacity: 0.1;
+      transform: scale(1);
+      // animation: pulse 4s linear infinite;
+    }
+    .one {
+      // animation-delay: 0s;
+      transform: scale(1);
+    }
+    .two {
+      // animation-delay: 0.5s;
+      transform: scale(1.6);
+    }
+    .three {
+      // animation-delay: 1s;
+      transform: scale(2.6);
+    }
+    .four {
+      // animation-delay: 1.5s;
+      transform: scale(3.8);
+    }
+
+    .me {
+      opacity: 1;
+      transform: scale(0.5);
+      border: 2px solid #fff;
+      background: #fff url(../assets/emin.jpg) center / cover no-repeat;
+    }
+  }
+}
+
+@keyframes pulse {
+  to {
+    opacity: 0;
+    transform: scale(4);
+  }
+}

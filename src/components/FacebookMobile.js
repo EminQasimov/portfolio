@@ -1,0 +1,106 @@
+import React, { useRef, useEffect, useState } from "react"
+import { Scrollbars } from "react-custom-scrollbars"
+
+import { FacebookF } from "styled-icons/fa-brands/FacebookF"
+import { Search } from "styled-icons/evil/Search"
+import { Gear } from "styled-icons/octicons/Gear"
+import { Image } from "styled-icons/typicons/Image"
+import { DotsHorizontalRounded } from "styled-icons/boxicons-regular/DotsHorizontalRounded"
+
+import myimg from "../assets/profile.jpg"
+
+const Post = ({ postDate, video }) => {
+  let fbVideo = useRef(null)
+  let [isloading, setLoading] = useState(true)
+
+  useEffect(() => {
+    let inter = setInterval(() => {
+      let elem = fbVideo.current.getAttribute("fb-xfbml-state")
+      if (elem === "rendered") {
+        setLoading(false)
+        clearInterval(inter)
+      }
+    }, 3000)
+  }, [])
+
+  return (
+    <div className="facebook-post">
+      <div className="post-head">
+        <img src={myimg} alt="emin qasimov profile" />
+        <div className="author">
+          <div className="name">Emin Qasimov</div>
+          <div className="time">{postDate}</div>
+        </div>
+        <div className="dots">
+          <DotsHorizontalRounded />
+        </div>
+      </div>
+      <div className={"post-body" + (isloading ? " preloader" : "")}>
+        <div
+          className="fb-video"
+          ref={fbVideo}
+          data-href={video}
+          data-show-text="true"
+          data-width="auto"
+          // data-autoplay="false"
+          // data-allowfullscreen="false"
+        />
+      </div>
+    </div>
+  )
+}
+
+export default function FacebookMobile({ data = [] }) {
+  let posts = data.map((e, i) => {
+    return <Post video={e.video} postDate={e.time} key={i} />
+  })
+
+  return (
+    <div id="facebook">
+      <header>
+        <div className="logo-search">
+          <span className="logo">
+            <FacebookF />
+          </span>
+          <div className="search-wrapper">
+            <span className="search-icon">
+              <Search />
+            </span>
+            <input type="text" placeholder="Search" className="search" />
+          </div>
+        </div>
+        <div className="setting">
+          <span>
+            <Gear />
+          </span>
+        </div>
+      </header>
+      <main>
+        <div className="fb-middle">
+          <Scrollbars style={{ width: "100%", height: "100%" }}>
+            <div className="story-wrapper">
+              <h1>Stories</h1>
+              <ul className="stories">
+                <li className="story" />
+                <li className="story" />
+                <li className="story" />
+                <li className="story" />
+                <li className="story" />
+                <li className="story" />
+              </ul>
+            </div>
+            <div className="fb-send">
+              <div className="post-profile" />
+              <div className="send-input">Add a post</div>
+              <div className="send-button">
+                <Image />
+              </div>
+            </div>
+
+            <div className="fb-posts">{posts}</div>
+          </Scrollbars>
+        </div>
+      </main>
+    </div>
+  )
+}
