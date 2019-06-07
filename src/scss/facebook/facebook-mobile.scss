@@ -242,7 +242,7 @@ $gray: #ececf0;
     .post-profile {
       width: 3.6em;
       height: 3.6em;
-      background: url($myimg) center / cover no-repeat;
+      background: url(../assets/emin.jpg) center / cover no-repeat;
       border-radius: 50%;
     }
     .send-input {
@@ -301,7 +301,9 @@ $gray: #ececf0;
     height: 6.5em;
     padding: 1.2em;
     margin: 0 auto;
-    img {
+    span {
+      display: inline-block;
+      background: url(./../assets/emin.jpg) center / cover no-repeat;
       width: 3.4em;
       height: 3.4em;
       border-radius: 50%;

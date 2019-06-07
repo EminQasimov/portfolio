@@ -1,0 +1,77 @@
+.portfolio {
+  height: 100vh;
+  .content {
+    overflow: hidden;
+  }
+  .buttons:hover span,
+  .buttons:hover svg {
+    animation: none;
+  }
+  .right-button {
+    animation-direction: alternate-reverse !important;
+  }
+  .left-button,
+  .right-button {
+    transition: all 0.3s ease;
+    transform: scale(1.01);
+    width: 50% !important;
+    animation: pulse 0.5s ease infinite alternate;
+    animation-play-state: running;
+    svg {
+      animation: pulse-color 0.5s ease infinite alternate-reverse;
+      animation-play-state: running;
+    }
+    &:hover {
+      transform: scale(1.1);
+      background: #38a5fd;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      svg {
+        color: $white !important;
+        opacity: 1 !important;
+        animation: none;
+      }
+    }
+
+    &:active {
+      transform: scale(0.98);
+      background: #38a5fd;
+      animation: none;
+      box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      svg {
+        color: $white !important;
+        opacity: 1 !important;
+        animation: none;
+      }
+    }
+  }
+  .alice-carousel,
+  .alice-carousel > div,
+  .alice-carousel__wrapper,
+  .alice-carousel ul,
+  .alice-carousel li {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.98);
+    background: #38a5fd;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: scale(1.1);
+    background: #38a5fd;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes pulse-color {
+  to {
+    opacity: 1;
+    color: $white;
+  }
+}

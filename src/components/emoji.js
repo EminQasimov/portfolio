@@ -99,8 +99,6 @@ class Emoji {
 const createVideo = cb => {
   if (!VIDEO) {
     VIDEO = true
-    console.log("VIDEO MUST load ONCE")
-
     let video = document.createElement("video")
     let type
     if (video.canPlayType("video/mp4")) {
@@ -187,7 +185,6 @@ Emoji.generate = (canvas, count = 4) => {
     for (let i = 1; i <= count; i++) {
       createEmojis()
     }
-    console.log("list created", Emoji.emojiList)
   })
 }
 

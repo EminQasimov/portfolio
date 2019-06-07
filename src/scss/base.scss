@@ -9,6 +9,7 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
+  overscroll-behavior: contain;
 }
 body {
   font-size: 65.2%;
@@ -34,41 +35,64 @@ button {
   // overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  // @media screen and (min-width: 800px) and (min-height: 600px){
+  //   overscroll-behavior: none;//don't scroll in the end
+  // }
 }
 main {
   margin: 0 auto;
   width: 100%;
-}
-.me-bg {
-  display: block;
-  height: 120vh;
-  position: fixed;
-  left: 0px;
-  top: 0;
-  z-index: 9;
-  opacity: 0.4;
-  transform: translateZ(0);
-  pointer-events: none; 
 }
 
 .container {
   margin-left: auto;
   margin-right: auto;
   max-width: 1352px;
+  min-height: 100vh;
   padding: 0 1em;
   width: 100%;
 }
 
 main.main-wrapper > section {
+  min-height: 100vh;
+  // position: sticky;
+  top: 0;
+  & > div {
+    // position: sticky;
+  }
+}
+// waiting scroll
+
+.bg {
+  background: url(../assets/bg.png) 0px 0px / auto 102vh no-repeat fixed;
+}
+.intro {
+  background: url(../assets/bg.png) 0px 0px / auto 102vh no-repeat fixed,
+    linear-gradient(-225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
+  z-index: 1;
+}
+.stuck{
   height: 100vh;
+  pointer-events: none;
+}
+.social {
+  background-color: rgb(84, 40, 131);
+  z-index: 2;
 }
 
-.three {
-  background: orange;
+.blog {
+  background-color: rgb(150, 224, 114);
+  z-index: 3;
 }
-.four {
-  background: purple;
+.portfolio {
+  background-color: gold;
+  z-index: 9;
 }
-.five {
-  background: gold;
+.skills {
+  background-color: rgb(34, 197, 83);
+  z-index: 10;
+}
+.contact {
+  background-color: rgb(194, 69, 69);
+  z-index: 11;
 }

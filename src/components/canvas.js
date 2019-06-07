@@ -17,7 +17,7 @@ export default function Canvas(props) {
   useEffect(() => {
     resizeCanvas()
     const myEfficientFn = debounce(function() {
-      resizeCanvas()
+      resizeCanvas() 
     }, 250)
     window.addEventListener("resize", myEfficientFn)
     return () => {

@@ -1,10 +1,36 @@
 .social {
-  background: #3F51B5;
-  position: relative;
+  position: relatiive;
+  z-index: 2;
+  .searchbar{
+    background: rgba(86, 146, 250, 0.712) !important;
+  }
   .container {
     min-height: 100vh;
     position: relative;
     display: flex;
+    & >h1 {
+      position: absolute;
+      text-align: left;
+      top: 30%;
+      z-index: 9;
+      font-size: 5em;
+      font-weight: 700;
+      color: $white;
+      pointer-events: none;
+      text-shadow: 0 2px 1px rgba(75, 75, 78, 0.6);
+    }
+    & > p {
+      font-size: 2.5em;
+      color: $white;
+      opacity: 0.8;
+      font-weight: 400;
+      position: absolute;
+      text-align: left;
+      pointer-events: none;
+      top: 26%;
+      z-index: 1;
+      text-shadow: 0 2px 1px rgba(75, 75, 78, 0.6);
+    }
   }
   .right {
     height: 100%;
@@ -22,33 +48,14 @@
     height: 100%;
     width: 50%;
     color: $white;
+    mix-blend-mode: hard-light;
     canvas {
       display: block;
       width: 100%;
       height: 100%;
-    }
-    h1 {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      top: 30%;
-      z-index: 9;
-      font-size: calc(5em + 1vw);
-      font-weight: 700; 
-      pointer-events: none;
-      text-shadow: 0 2px 1px rgba(75, 75, 78, 0.6);
-    }
-    p {
-      font-size: calc(2.4em + 1vw);
-      opacity: 0.8;
-      font-weight: 400;
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      top: 26%;
-      z-index: 1; 
-      text-shadow: 0 2px 1px rgba(75, 75, 78, 0.6);
-
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

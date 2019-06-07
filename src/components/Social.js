@@ -24,28 +24,29 @@ let PostData = [
 
 export default function Social() {
   return (
-    <section className="social" id="two">
-      <div className="container">
-        <div className="right">
-          <FirefoxBrowserFrame
-            style={{
-              width: "100%",
-              height: "calc(100vh + 8em)",
-              borderRadius: 0,
-              position: "relative",
-              top: "-4em"
-            }}
-            tabbar={false}
-          >
-            <FacebookMobile data={PostData} />
-          </FirefoxBrowserFrame>
+      <section className="social bg" id="social">
+        <div className="container">
+          <p>I am on</p>
+          <h1>Facebook</h1>
+          <div className="right">
+            <FirefoxBrowserFrame
+              url="facebook.com/emin.qasimovdia"
+              style={{
+                width: "100%",
+                height: "calc(100vh + 4em)",
+                borderRadius: 0,
+                position: "relative",
+                top: "-4em"
+              }}
+              tabbar={false}
+            >
+              <FacebookMobile data={PostData} />
+            </FirefoxBrowserFrame>
+          </div>
         </div>
-      </div>
-      <div className="left">
-        <p>I am on</p>
-        <h1>Facebook</h1>
-        <Canvas />
-      </div>
-    </section>
+        <div className="left">
+          <Canvas />
+          </div>
+      </section>
   )
 }

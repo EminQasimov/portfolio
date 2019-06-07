@@ -1,0 +1,131 @@
+.blog {
+  .container {
+    padding: 0 0 0 1em;
+  }
+  h1 {
+    font-size: 5em;
+    padding: 0.4em 0 0.4em 0em;
+    font-weight: 700;
+    color: $white;
+  }
+  .articles {
+  }
+
+  .card {
+    background: $white;
+    overflow: hidden;
+    user-select: none;
+    margin-right: 1em;
+    &::after {
+      content: " ";
+      display: block;
+      position: relative;
+      bottom: -4px;
+      height: 4px;
+      width: 100%;
+      transition: transform 0.3s ease-in-out;
+      background: #b5272d;
+      z-index: 9;
+    }
+    &::before {
+      content: " ";
+      display: block;
+      height: 2px;
+      width: 2px;
+      background: linear-gradient(
+        30deg,
+        rgba(#1a2a63, 0.5),
+        rgba(#1a2a63, 0.3)
+      );
+      transition: opacity 0.3s ease-in-out;
+      opacity: 0;
+      z-index: 4;
+      transform: translate(20px, 20px) scale(1000);
+      position: relative;
+    }
+    &:hover {
+      &::after {
+        transform: translateY(-4px);
+      }
+      &::before {
+        opacity: 1;
+      }
+      .img__wrapper {
+        transform-origin: center 0;
+        transform: scale(1.8);
+      }
+      .card__title {
+        transform: translateY(-15%);
+        h3,
+        p {
+          color: $white;
+        }
+      }
+    }
+    .img__wrapper {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      transform: scale(1);
+      transition: all 0.5s ease-in-out;
+      top: -2px;
+      z-index: 1;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      img {
+        object-fit: cover;
+      }
+    }
+    &__title {
+      padding: 2em;
+      height: 200px;
+      position: relative;
+      bottom: 0;
+      transition: all 0.5s ease-in-out;
+      z-index: 9;
+      transform: scale(1.01);
+
+      &:hover {
+        h3 {
+          text-decoration: underline;
+        }
+      }
+    }
+    h3 {
+      font-size: 2em;
+      font-weight: 700;
+      color: $black;
+      padding: 0.5em 0;
+      transition: color 0.3s ease-in-out;
+    }
+    p {
+      font-size: 1.5em;
+      opacity: 0.9;
+      transition: color 0.3s ease-in-out;
+      font-weight: 400;
+    }
+  }
+}
+
+.grabbing {
+  cursor: grabbing;
+}
+.grab {
+  cursor: grab;
+}
+// .alice-carousel {
+//   // display: flex;
+//   &:hover {
+//     cursor: grab;
+//   }
+
+//   & > div {
+//     // flex: 1;
+//   }
+//   &__prev-btn {
+//   }
+//   &__next-btn {
+//   }
+// }

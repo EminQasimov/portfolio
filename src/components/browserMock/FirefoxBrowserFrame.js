@@ -7,7 +7,14 @@ import { Star } from "styled-icons/fa-regular/Star"
 import { Close } from "styled-icons/material/Close"
 
 const FirefoxBrowserFrame = props => {
-  let { tabbar } = props
+  let {
+    tabbar,
+    url,
+    leftClickHandler = () => {},
+    rightClickHandler = () => {},
+    buttonEnter = () => {},
+    buttonLeave = () => {}
+  } = props
 
   return (
     <div id="FirefoxBrowserFrame" style={{ ...props.style }}>
@@ -26,19 +33,23 @@ const FirefoxBrowserFrame = props => {
         </div>
       ) : null}
       <div className="searchbar">
-        <div className="buttons">
-          <span>
+        <div
+          className="buttons"
+          onMouseEnter={buttonEnter}
+          onMouseLeave={buttonLeave}
+        >
+          <span onClick={leftClickHandler} className="left-button">
             <ArrowLeft />
           </span>
-          <span>
+          <span onClick={rightClickHandler} className="right-button">
             <ArrowRight />
           </span>
-          <span>
+          <span style={{ display: tabbar ? "none" : "inline-block" }}>
             <Refresh />
           </span>
         </div>
         <div className="searchinput">
-          <input type="text" placeholder="facebook.com/emin.qasimovdia" />
+          <input type="text" placeholder={url} />
           <span>
             <Star />
           </span>
@@ -48,10 +59,7 @@ const FirefoxBrowserFrame = props => {
         </div>
       </div>
 
-      <div
-        className="content"
-        style={{ height: tabbar ? null : "100%" }}
-      >
+      <div className="content" style={{ height: tabbar ? null : "100%" }}>
         {props.children}
       </div>
     </div>

@@ -1,7 +1,12 @@
 import React from "react"
 import Intro from "./components/Intro"
 import Social from "./components/Social"
-import bg from "./assets/bg.png"
+import Blog from "./components/Blog"
+import Protfolio from "./components/Portfolio"
+import Skills from "./components/Skills"
+import Contact from "./components/Contact"
+import Sticky from "react-sticky-fill"
+
 // import firebase from "./firebaseConfig"
 // const articles = firebase.database().ref("/articles")
 
@@ -15,28 +20,51 @@ import bg from "./assets/bg.png"
 //   console.log(err)
 // })
 
-// import FirefoxBrowserFrame from "./components/browserMock/FirefoxBrowserFrame"
-// import FacebookHome from "./components/facebook/Home"
-// import Canvas from "./components/Canvas"
-
 export default function App() {
   return (
     <>
-      <img src={bg} className="me-bg" alt="emin qasimov bg" />
-      {/* scroll wrapper for stable fixed bg image, this fixed bug in edge and mobiles */}
+      {/* scroll wrapper for stable fixed bg image, this fixed bug in edge and mobiles create consistency scroll experience */}
       <div className="scroll-wrapper">
         <main className="main-wrapper">
-          <Intro />
-          <Social />
-          <section className="three" id="three">
-            FINE
-          </section>
-          <section className="four" id="four">
-            IN
-          </section>
-          <section className="five" id="five">
-            END
-          </section>
+          <Sticky>
+            <Intro />
+          </Sticky>
+
+          <Sticky>
+            <Social />
+          </Sticky>
+
+          <Sticky style={{zIndex: '0',pointerEvents: "none"}}>
+            <section className="stuck" />
+          </Sticky>
+
+          <Sticky>
+            <Blog />
+          </Sticky>
+
+          <Sticky style={{zIndex: '0',pointerEvents: "none"}}>
+            <section className="stuck" />
+          </Sticky>
+
+          <Sticky >
+            <Protfolio />
+          </Sticky>
+
+          <Sticky style={{zIndex: '0',pointerEvents: "none"}}>
+            <section className="stuck" />
+          </Sticky>
+
+          <Sticky>
+            <Skills />
+          </Sticky>
+          
+          <Sticky style={{zIndex: '0',pointerEvents: "none"}}>
+            <section className="stuck" />
+          </Sticky>
+          
+          <Sticky>
+            <Contact />
+          </Sticky>
         </main>
       </div>
     </>

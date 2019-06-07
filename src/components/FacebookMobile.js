@@ -1,13 +1,10 @@
 import React, { useRef, useEffect, useState } from "react"
 import { Scrollbars } from "react-custom-scrollbars"
-
 import { FacebookF } from "styled-icons/fa-brands/FacebookF"
 import { Search } from "styled-icons/evil/Search"
 import { Gear } from "styled-icons/octicons/Gear"
 import { Image } from "styled-icons/typicons/Image"
 import { DotsHorizontalRounded } from "styled-icons/boxicons-regular/DotsHorizontalRounded"
-
-import myimg from "../assets/profile.jpg"
 
 const Post = ({ postDate, video }) => {
   let fbVideo = useRef(null)
@@ -26,7 +23,7 @@ const Post = ({ postDate, video }) => {
   return (
     <div className="facebook-post">
       <div className="post-head">
-        <img src={myimg} alt="emin qasimov profile" />
+        <span />
         <div className="author">
           <div className="name">Emin Qasimov</div>
           <div className="time">{postDate}</div>

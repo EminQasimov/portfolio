@@ -3598,6 +3598,11 @@ css-select@^2.0.0:
     domutils "^1.7.0"
     nth-check "^1.0.2"
 
+css-supports@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/css-supports/-/css-supports-0.1.1.tgz#9ae201f952beb65f00c5e4b249ebce8ef58a013d"
+  integrity sha1-muIB+VK+tl8AxeSySevOjvWKAT0=
+
 css-to-react-native@^2.2.2:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/css-to-react-native/-/css-to-react-native-2.3.1.tgz#cf0f61e0514846e2d4dc188b0886e29d8bef64a2"
@@ -3941,6 +3946,11 @@ detect-node@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
   integrity sha512-ZIzRpLJrOj7jjP2miAtgqIfmzbxa4ZOr5jJc601zklsfEx9oTzmmj2nVpIPRpNlRTIh8lc1kyViIY7BWSGNmKw==
+
+detect-passive-events@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/detect-passive-events/-/detect-passive-events-1.0.4.tgz#6ed477e6e5bceb79079735dcd357789d37f9a91a"
+  integrity sha1-btR35uW863kHlzXc01d4nTf5qRo=
 
 detect-port-alt@1.1.6:
   version "1.1.6"
@@ -9479,7 +9489,7 @@ prompts@^2.0.1:
     kleur "^3.0.2"
     sisteransi "^1.0.0"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.2:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9696,6 +9706,14 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-alice-carousel@^1.13.14:
+  version "1.13.14"
+  resolved "https://registry.yarnpkg.com/react-alice-carousel/-/react-alice-carousel-1.13.14.tgz#d0f9553fdc2adaa0691ca28f3bb98d889e13f430"
+  integrity sha512-4aqVsHq7R7ozBMWdmpoAgzEF9xyqp8W39ZJwQmIP1c7/xTCXy5xxM95pH3jUi6TspyDNLjMpkAZruRfDMSbTnQ==
+  dependencies:
+    prop-types "^15.5.10"
+    react-swipeable "4.3.0"
+
 react-app-polyfill@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-1.0.1.tgz#809a858e44f9564c7f4205e173076f90048274f1"
@@ -9836,6 +9854,22 @@ react-scripts@3.0.1:
     workbox-webpack-plugin "4.2.0"
   optionalDependencies:
     fsevents "2.0.6"
+
+react-sticky-fill@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/react-sticky-fill/-/react-sticky-fill-0.8.4.tgz#8870a71b1c356b5caf2c451ff0010fdfa0de6111"
+  integrity sha512-EQVDR/iN0KP89Mogon69KgCVbfRQxQe/73G3gzMW7ZfDOv1khQjpvn+0FVvgTKcp/AjJz/T4QhNZp2/oNiQdww==
+  dependencies:
+    css-supports "^0.1.1"
+    stickyfill "^1.1.1"
+
+react-swipeable@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-4.3.0.tgz#818c0818ac565f5b169348f442153f343abff8bc"
+  integrity sha512-L21VMbcDvG+AOVF4ZIbQ8sICGIgiKB/plGKWBMw6dkxt5neS7x74ZlTbJ39U8slz798MZBv/uIoE9Vzgp3PODQ==
+  dependencies:
+    detect-passive-events "^1.0.4"
+    prop-types "^15.5.8"
 
 react@^16.8.6:
   version "16.8.6"
@@ -10910,6 +10944,11 @@ stealthy-require@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+
+stickyfill@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/stickyfill/-/stickyfill-1.1.1.tgz#39413fee9d025c74a7e59ceecb23784cc0f17f02"
+  integrity sha1-OUE/7p0CXHSn5ZzuyyN4TMDxfwI=
 
 stream-browserify@^2.0.1:
   version "2.0.2"
