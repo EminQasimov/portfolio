@@ -1,11 +1,11 @@
-import React from "react"
-import Intro from "./components/Intro"
-import Social from "./components/Social"
-import Blog from "./components/Blog"
-import Protfolio from "./components/Portfolio"
-import Skills from "./components/Skills"
-import Contact from "./components/Contact"
-import Sticky from "react-sticky-fill"
+import React from 'react';
+import Intro from './components/Intro';
+import Social from './components/Social';
+import Blog from './components/Blog';
+import Protfolio from './components/Portfolio';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Sticky from 'react-sticky-fill';
 
 // import firebase from "./firebaseConfig"
 // const articles = firebase.database().ref("/articles")
@@ -20,53 +20,84 @@ import Sticky from "react-sticky-fill"
 //   console.log(err)
 // })
 
-export default function App() {
-  return (
-    <>
-      {/* scroll wrapper for stable fixed bg image, this fixed bug in edge and mobiles create consistency scroll experience */}
-      <div className="scroll-wrapper">
-        <main className="main-wrapper">
-          <Sticky>
-            <Intro />
-          </Sticky>
+const isSmallAndBig = () => {
+  if (window.innerWidth <= 600 || window.innerHeight >= 908) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
-          <Sticky>
-            <Social />
-          </Sticky>
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      size: isSmallAndBig()
+    };
+  }
 
-          <Sticky style={{zIndex: '0',pointerEvents: "none"}}>
-            <section className="stuck" />
-          </Sticky>
+  componentDidMount() {
+    window.addEventListener('load', () => {
+      this.setState({ loading: false });
+    });
+    window.addEventListener('resize', () => {
+      this.setState({ size: isSmallAndBig() });
+    });
+  }
+  render() {
+    return (
+      <>
+        {this.state.loading ? (
+          <div className="spinner-wrapper">
+            <div className="spinner" />
+          </div>
+        ) : null}
+        {/* scroll wrapper for stable fixed bg image, in edge and mobiles it creates consistency scrolling experience */}
+        <div className="scroll-wrapper">
+          <main className="main-wrapper">
+            <Sticky>
+              <Intro />
+            </Sticky>
 
-          <Sticky>
-            <Blog />
-          </Sticky>
+            <Sticky style={{ zIndex: this.state.size ? '999' : '1' }}>
+              <Social />
+            </Sticky>
 
-          <Sticky style={{zIndex: '0',pointerEvents: "none"}}>
-            <section className="stuck" />
-          </Sticky>
+            <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
+              <section className="stuck" />
+            </Sticky>
 
-          <Sticky >
-            <Protfolio />
-          </Sticky>
+            <Sticky>
+              <Blog />
+            </Sticky>
 
-          <Sticky style={{zIndex: '0',pointerEvents: "none"}}>
-            <section className="stuck" />
-          </Sticky>
+            <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
+              <section className="stuck" />
+            </Sticky>
 
-          <Sticky>
-            <Skills />
-          </Sticky>
-          
-          <Sticky style={{zIndex: '0',pointerEvents: "none"}}>
-            <section className="stuck" />
-          </Sticky>
-          
-          <Sticky>
-            <Contact />
-          </Sticky>
-        </main>
-      </div>
-    </>
-  )
+            <Sticky style={{ zIndex: this.state.size ? '999' : '1' }}>
+              <Protfolio />
+            </Sticky>
+
+            <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
+              <section className="stuck" />
+            </Sticky>
+
+            <Sticky>
+              <Skills />
+            </Sticky>
+
+            <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
+              <section className="stuck" />
+            </Sticky>
+
+            <Sticky>
+              <Contact />
+            </Sticky>
+          </main>
+        </div>
+      </>
+    );
+  }
 }

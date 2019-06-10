@@ -1,10 +1,10 @@
-$myimg: "https://s.cdpn.io/profiles/user/2961445/80.jpg?1553082357";
-$avatar: "https://i.pravatar.cc/64?img=";
-$photo1: "https://images.unsplash.com/photo-1558417942-4aca90f81642?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
-$photo2: "https://images.unsplash.com/photo-1558333115-fe12aa457af8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
-$photo3: "https://images.unsplash.com/photo-1558281050-4c33200099c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
-$photo4: "https://images.unsplash.com/photo-1558298336-360a2280e580?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
-$photo5: "https://images.unsplash.com/photo-1526237377175-22e94a1ed9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
+$myimg: 'https://s.cdpn.io/profiles/user/2961445/80.jpg?1553082357';
+$avatar: 'https://i.pravatar.cc/64?img=';
+$photo1: 'https://images.unsplash.com/photo-1558417942-4aca90f81642?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80';
+$photo2: 'https://images.unsplash.com/photo-1558333115-fe12aa457af8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80';
+$photo3: 'https://images.unsplash.com/photo-1558281050-4c33200099c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80';
+$photo4: 'https://images.unsplash.com/photo-1558298336-360a2280e580?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80';
+$photo5: 'https://images.unsplash.com/photo-1526237377175-22e94a1ed9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80';
 $facebook-blue: #1978f6;
 $gray: #ececf0;
 
@@ -68,7 +68,7 @@ $gray: #ececf0;
         }
 
         span.search-icon {
-          content: " ";
+          content: ' ';
           display: inline-block;
           width: 2em;
           height: 2em;
@@ -104,23 +104,24 @@ $gray: #ececf0;
     display: flex;
     height: 100%;
     overflow: hidden;
-
   } // .main
 } //#facebook
- 
+
 .fb-middle {
   width: 100%;
   background: $gray;
-  box-shadow: 1px 0px 1px rgb(223, 221, 221),
-    -1px 0px 1px rgb(223, 221, 221);
+  box-shadow: 1px 0px 1px rgb(223, 221, 221), -1px 0px 1px rgb(223, 221, 221);
   height: calc(100% - 9em);
-  & > div > div{
+  & > div > div {
     overflow-x: hidden !important;
+  }
+  & > div > div + div {
+    display: none !important;
   }
   .story-wrapper {
     margin: 1em;
     overflow: hidden;
-    height: 18em;
+    height: 18.5em;
 
     h1 {
       display: flex;
@@ -129,7 +130,7 @@ $gray: #ececf0;
       text-shadow: 0 0 1px #585757;
       font-size: 1.5em;
       &::after {
-        content: "See All";
+        content: 'See All';
         display: block;
         font-size: 11px;
         color: $facebook-blue;
@@ -155,7 +156,7 @@ $gray: #ececf0;
         position: relative;
         font-family: Helvetica, sans-serif;
         &::before {
-          content: " + ";
+          content: ' + ';
           display: inline-block;
           width: 2em;
           height: 2em;
@@ -171,7 +172,6 @@ $gray: #ececf0;
           transform: scale(0.6);
         }
         &::after {
-          content: "Emin Qasimov";
           display: block;
           position: absolute;
           bottom: 0;
@@ -184,9 +184,9 @@ $gray: #ececf0;
           text-shadow: 0 0 50px #000, 0 0 50px #000, 0 0 50px #000,
             0 0 50px #000;
         }
-        @for $i from 2 through 6 {
+        @for $i from 2 through 8 {
           &:nth-child(#{$i})::before {
-            content: "\00a0 ";
+            content: '\00a0 ';
             background: url($avatar+$i) center / cover no-repeat;
           }
         }
@@ -209,28 +209,17 @@ $gray: #ececf0;
         &:nth-child(6) {
           background-image: url($photo5);
         }
-
-        &:nth-child(2)::after {
-          content: "Richard Stally";
+        &:nth-child(7) {
+          background-image: url($photo3);
         }
-        &:nth-child(3)::after {
-          content: "Brendan Moon";
-        }
-        &:nth-child(4)::after {
-          content: "Quido Russian";
-        }
-        &:nth-child(5)::after {
-          content: "Torvaldes Kevin";
-        }
-        &:nth-child(6)::after {
-          content: "Lius Fernaddo";
+        &:nth-child(8) {
+          background-image: url($photo2);
         }
       }
     }
   } //stori wrapper
 
   .fb-send {
-    margin: 2em;
     display: flex;
     text-align: center;
     border-radius: 0.7em;
@@ -269,10 +258,15 @@ $gray: #ececf0;
   }
 } // fb middle
 
-// post scss ------------------------------- 
+// post scss -------------------------------
 .preloader {
   height: 300px;
-  background-image: linear-gradient(to left, #ffffff 0%, rgba(53, 53, 53, 0.1) 50%, #ffffff 100%) !important;
+  background-image: linear-gradient(
+    to left,
+    #ffffff 0%,
+    rgba(53, 53, 53, 0.1) 50%,
+    #ffffff 100%
+  ) !important;
   background-repeat: no-repeat !important;
   background-size: 900px 100%;
   animation: placeHolderShimmer 2s ease-in-out infinite forwards;
@@ -280,10 +274,10 @@ $gray: #ececf0;
 
 @keyframes placeHolderShimmer {
   0% {
-    background-position: -800px 0
+    background-position: -800px 0;
   }
   100% {
-    background-position: 800px 0
+    background-position: 800px 0;
   }
 }
 
@@ -298,14 +292,14 @@ $gray: #ececf0;
   .post-head {
     display: flex;
     align-items: center;
-    height: 6.5em;
+    height: 7.2em;
     padding: 1.2em;
     margin: 0 auto;
     span {
       display: inline-block;
       background: url(./../assets/emin.jpg) center / cover no-repeat;
-      width: 3.4em;
-      height: 3.4em;
+      width: 4.4em;
+      height: 4.4em;
       border-radius: 50%;
       box-shadow: 0 0 0 2px #fff, 0 0 0 3px $facebook-blue;
     }
@@ -315,12 +309,19 @@ $gray: #ececf0;
       .name {
         color: #4665a1;
         font-size: 1.4em;
-        font-weight: 700;
+        p {
+          display: inline;
+          text-indent: 8em;
+          color: rgba(0, 0, 0, 0.52);
+          font-weight: 100;
+        }
+        a {
+          color: #4665a1;
+        }
       }
       .time {
-        color: #666;
+        color: rgba(0, 0, 0, 0.52);
         font-size: 1.2em;
-        font-weight: 500;
       }
     }
     .dots {

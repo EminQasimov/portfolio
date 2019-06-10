@@ -1,14 +1,16 @@
 .blog {
   .container {
     padding: 0 0 0 1em;
+    border-top: 1px solid transparent;
   }
   h1 {
     font-size: 5em;
-    padding: 0.4em 0 0.4em 0em;
+    padding: 1em 0 0.4em 0em;
     font-weight: 700;
     color: $white;
   }
   .articles {
+    transform: scale(0.94);
   }
 
   .card {
@@ -17,7 +19,7 @@
     user-select: none;
     margin-right: 1em;
     &::after {
-      content: " ";
+      content: ' ';
       display: block;
       position: relative;
       bottom: -4px;
@@ -28,7 +30,7 @@
       z-index: 9;
     }
     &::before {
-      content: " ";
+      content: ' ';
       display: block;
       height: 2px;
       width: 2px;

@@ -1,21 +1,21 @@
-@import "./facebook/facebook-mobile.scss";
+@import './facebook/facebook-mobile.scss';
 
 .intro {
   color: $white;
   overflow: hidden;
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
+
   .container {
     height: 100%;
-    position: relative;
+    text-align: center;
   }
   aside.left {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    position: absolute;
-    z-index: 999;
+    font-size: 1em;
     & > div {
       flex: 1;
     }
@@ -26,18 +26,20 @@
     }
   }
   .menu-list {
+    text-align: right;
     li {
       display: inline-block;
       margin-right: 2em;
       a {
         font-size: 1.6em;
+        font-weight: 700;
         display: block;
         padding: 2em 1em;
         transition: color 0.2s ease;
-        color: $yellow;
+        color: $white;
 
         &:hover {
-          color: $white;
+          color: $yellow;
         }
       }
       &:last-child {
@@ -133,8 +135,9 @@
       transition: all 0.2s ease-in-out;
       opacity: 0.94;
       transform: scale(0.99);
-      background: $yellow;
-      color: $black;
+      background: $black;
+      color: $yellow;
+
       svg {
         width: 1.8em;
         height: 1.8em;
@@ -142,8 +145,8 @@
       &:hover {
         cursor: pointer;
         opacity: 1;
-        background: $black;
-        color: $yellow;
+        background: $yellow;
+        color: $black;
       }
       &:focus {
         outline: none;
@@ -155,55 +158,14 @@
     }
   }
 
-  aside.right {
-    position: absolute;
-    right: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50%;
-    height: 50%;
-    pointer-events: none;
-    div {
-      border-radius: 50%;
-      position: absolute;
+  @media screen and (max-width: 768px) {
+    aside.left {
+      font-size: 0.8em;
     }
-    .circle {
-      margin-left: calc(100% - 28vw);
-      top: calc(50% - 14vw);
-      width: 28vw;
-      height: 28vw;
-      background: #fff;
-      opacity: 0.1;
-      transform: scale(1);
-      // animation: pulse 4s linear infinite;
-    }
-    .one {
-      // animation-delay: 0s;
-      transform: scale(1);
-    }
-    .two {
-      // animation-delay: 0.5s;
-      transform: scale(1.6);
-    }
-    .three {
-      // animation-delay: 1s;
-      transform: scale(2.6);
-    }
-    .four {
-      // animation-delay: 1.5s;
-      transform: scale(3.8);
-    }
-
-    .me {
-      margin-left: calc(100% - 28vw);
-      top: calc(50% - 14vw);
-      width: 28vw;
-      height: 28vw;
-      transform: scale(0.6);
-      z-index: 9;
-      box-shadow: inset 0 0 48px rgba(0, 0, 0, 0.6);
-      opacity: 0.88;
-      background: #fff url(../assets/emin.jpg) center / cover no-repeat;
+  }
+  @media screen and (max-width: 425px) {
+    aside.left {
+      font-size: 0.6em;
     }
   }
 }

@@ -1,32 +1,44 @@
 .social {
   position: relatiive;
   z-index: 2;
-  .searchbar{
-    background: rgba(86, 146, 250, 0.712) !important;
+  @media screen and (max-width: 769px) {
+    .left,
+    h1.main_title,
+    p.second_title {
+      display: none !important;
+    }
+    .right {
+      width: 100% !important;
+      margin-top: 2px;
+      position: static !important;
+    }
   }
   .container {
     min-height: 100vh;
+    height: 100%;
     position: relative;
     display: flex;
-    & >h1 {
+    & > h1.main_title {
       position: absolute;
-      text-align: left;
       top: 30%;
       z-index: 9;
       font-size: 5em;
       font-weight: 700;
       color: $white;
       pointer-events: none;
+      width: 50%;
+      text-align: center;
       text-shadow: 0 2px 1px rgba(75, 75, 78, 0.6);
     }
-    & > p {
+    & > p.second_title {
       font-size: 2.5em;
       color: $white;
       opacity: 0.8;
       font-weight: 400;
       position: absolute;
-      text-align: left;
       pointer-events: none;
+      width: 50%;
+      text-align: center;
       top: 26%;
       z-index: 1;
       text-shadow: 0 2px 1px rgba(75, 75, 78, 0.6);
@@ -34,9 +46,9 @@
   }
   .right {
     height: 100%;
-    width: 50%;
+    width: 48%;
     position: absolute;
-    right: 0;
+    right: 2%;
     top: 0;
   }
 

@@ -9,7 +9,8 @@ $firefox-blue: #008afb;
   height: 600px;
   overflow: hidden;
   margin: 0 auto;
-  box-shadow: 0 20px 80px 1px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 50px 60px -40px rgba(0, 0, 0, 0.7),
+    0 -20px 80px -20px rgba(0, 0, 0, 0.7);
   position: relative;
   z-index: 999;
   font-family: Helvetica;
@@ -65,7 +66,7 @@ $firefox-blue: #008afb;
         -2.7em 1.3em 0 -2em lighten($firefox-blue, 17%);
 
       &::after {
-        content: " ";
+        content: ' ';
         width: 1.5em;
         height: 1.5em;
         display: block;
@@ -77,7 +78,7 @@ $firefox-blue: #008afb;
         transform: skewX(-1deg);
       }
       &::before {
-        content: " ";
+        content: ' ';
         width: 1.5em;
         height: 1.5em;
         display: block;
