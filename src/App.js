@@ -6,7 +6,6 @@ import Protfolio from './components/Portfolio';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Sticky from 'react-sticky-fill';
-
 // import firebase from "./firebaseConfig"
 // const articles = firebase.database().ref("/articles")
 
@@ -21,7 +20,7 @@ import Sticky from 'react-sticky-fill';
 // })
 
 const isSmallAndBig = () => {
-  if (window.innerWidth <= 600 || window.innerHeight >= 908) {
+  if (window.innerWidth < 1024 || window.innerHeight > 1024) {
     return true;
   } else {
     return false;
@@ -53,9 +52,10 @@ export default class App extends React.Component {
             <div className="spinner" />
           </div>
         ) : null}
-        {/* scroll wrapper for stable fixed bg image, in edge and mobiles it creates consistency scrolling experience */}
         <div className="scroll-wrapper">
-          <main className="main-wrapper">
+          <main
+            className={'main-wrapper ' + (this.state.loading ? '' : 'dance')}
+          >
             <Sticky>
               <Intro />
             </Sticky>

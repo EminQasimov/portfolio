@@ -11,7 +11,6 @@
     "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-alice-carousel": "^1.13.14",
-    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "react-sticky-fill": "^0.8.4",
@@ -22,7 +21,8 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && npx firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,7 +49,7 @@
       "pre-commit": "lint-staged"
     }
   },
- "lint-staged": {
+  "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --single-quote --write",
       "git add"

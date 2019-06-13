@@ -1,11 +1,28 @@
 .portfolio {
-  height: 100vh;
+  height: calc(100vh + 15em);
+  position: relative;
+  top: -15em;
   .container {
     position: relative;
     height: 100%;
+    border-top: 1px solid transparent; //margin collapse
   }
   .content {
     overflow: hidden;
+  }
+  h1 {
+    font-size: 5em;
+    font-weight: 700;
+    color: $white;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 2.5em;
+    color: $white;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 10px;
   }
   .buttons:hover span,
   .buttons:hover svg {

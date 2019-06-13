@@ -7,6 +7,7 @@ import { Facebook } from 'styled-icons/feather/Facebook';
 import { Github } from 'styled-icons/feather/Github';
 import { Twitter } from 'styled-icons/feather/Twitter';
 import { Codepen } from 'styled-icons/feather/Codepen';
+import { MediumOld } from 'styled-icons/boxicons-logos/MediumOld';
 
 export default function Intro() {
   return (
@@ -67,6 +68,11 @@ export default function Intro() {
               <a href="https://codepen.io/eminqasimov">
                 <li>
                   <Codepen />
+                </li>
+              </a>
+              <a href="https://medium.com/@eminqasimov">
+                <li>
+                  <MediumOld />
                 </li>
               </a>
             </ul>

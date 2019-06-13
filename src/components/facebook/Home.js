@@ -1,20 +1,20 @@
-import React from "react"
-// import "../../scss/facebook/home.scss"
-// import Post from "./Post"
+import React from 'react';
+import '../../scss/facebook/home.scss';
+import Post from './Post';
 
-import { FacebookF } from "styled-icons/fa-brands/FacebookF"
-import { Home } from "styled-icons/typicons/Home"
-import { Bell } from "styled-icons/boxicons-regular/Bell"
-import { Airplay } from "styled-icons/material/Airplay"
-import { Store } from "styled-icons/boxicons-regular/Store"
-import { Messenger } from "styled-icons/boxicons-logos/Messenger"
-import { PeopleOutline } from "styled-icons/material/PeopleOutline"
-import { Gear } from "styled-icons/octicons/Gear"
+import { FacebookF } from 'styled-icons/fa-brands/FacebookF';
+import { Home } from 'styled-icons/typicons/Home';
+import { Bell } from 'styled-icons/boxicons-regular/Bell';
+import { Airplay } from 'styled-icons/material/Airplay';
+import { Store } from 'styled-icons/boxicons-regular/Store';
+import { Messenger } from 'styled-icons/boxicons-logos/Messenger';
+import { PeopleOutline } from 'styled-icons/material/PeopleOutline';
+import { Gear } from 'styled-icons/octicons/Gear';
 
-export default function FacebookHome({data = []}) {
+export default function FacebookHome({ data = [] }) {
   let posts = data.map((e, i) => {
-    return <Post video={e.video} postDate={e.time} key={i} />
-  })
+    return <Post video={e.video} postDate={e.time} key={i} />;
+  });
 
   return (
     <div id="facebook">
@@ -87,11 +87,7 @@ export default function FacebookHome({data = []}) {
             <div className="send-input">Add a post</div>
             <div className="send-butto" />
           </div>
-          <div
-            className="fb-posts"
-          >
-            {posts}
-          </div>
+          <div className="fb-posts">{posts}</div>
         </div>
         <div className="fb-right">
           <div className="suggest-wrapper">
@@ -127,5 +123,5 @@ export default function FacebookHome({data = []}) {
         </div>
       </main>
     </div>
-  )
+  );
 }

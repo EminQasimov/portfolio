@@ -1,11 +1,15 @@
-$myimg: "https://s.cdpn.io/profiles/user/2961445/80.jpg?1553082357";
+$myimg: 'https://s.cdpn.io/profiles/user/2961445/80.jpg?1553082357';
 $facebook-blue: #1978f6;
- 
-
 
 .preloader {
   height: 300px;
-  background-image: linear-gradient( to left, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%) !important;
+  background-image: linear-gradient(
+    to left,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  ) !important;
   background-repeat: no-repeat;
   background-size: 800px 100%;
   animation: placeHolderShimmer 2s linear infinite forwards;
@@ -13,10 +17,10 @@ $facebook-blue: #1978f6;
 
 @keyframes placeHolderShimmer {
   0% {
-    background-position: -468px 0
+    background-position: -468px 0;
   }
   100% {
-    background-position: 468px 0
+    background-position: 468px 0;
   }
 }
 
@@ -57,7 +61,7 @@ $facebook-blue: #1978f6;
     .dots {
       width: 25px;
       height: 16px;
-      background: url(../../../assets/facebook-sprite.png) -69px -65px/132px
+      background: url(./../../assets/facebook-sprite.png) -69px -65px/132px
         183px no-repeat;
       transform: scale(0.7);
     }

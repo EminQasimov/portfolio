@@ -1,39 +1,49 @@
 import React, { Component, useState } from 'react';
 import FirefoxBrowserFrame from './browserMock/FirefoxBrowserFrame';
 import AliceCarousel from 'react-alice-carousel';
+import newFacebookDesignUI from '../assets/newFacebookDesignUI.mp4';
 
 const framesData = [
   {
     url: 'https://eminqasimov.github.io/loginsignupform',
-    title: 'login form'
+    title: 'Login and Sign up Form UI animation'
   },
   {
     url: 'https://eminqasimov.github.io/colorui',
-    title: 'color ui'
+    title: 'Color UI Landing Page'
   },
   {
     url: 'https://eminqasimov.github.io/movies-roller',
-    title: 'movies-roller'
+    title: 'Rolling Movies Carousel '
   },
   {
     url: 'https://eminqasimov.github.io/opening-3d-box-animation',
-    title: '3d box'
+    title: 'Opening 3D cardboard Box Animation'
   },
   {
     url: 'https://eminqasimov.github.io/3dCarAnimation',
-    title: '3d car'
+    title: '3D Car Animation'
   },
   {
     url: 'https://eminqasimov.github.io/striped-background',
-    title: 'striped-background'
+    title: 'Striped Background Effect With CSS'
   },
   {
     url: 'https://eminqasimov.github.io/flag-animation',
-    title: 'flag'
+    title: 'Interactive Flag Animation '
+  },
+  {
+    url: newFacebookDesignUI,
+    title: 'new Facebook Design',
+    type: 'video'
+  },
+  {
+    url: 'https://eminqasimov.github.io/pure-css-photo-collage',
+    title: 'Responsive Pure CSS Photo Collage'
   }
 ];
 
-const Frame = ({ url, title }) => {
+const Frame = ({ url, title, type = 'iframe' }) => {
   const [loading, setLoading] = useState(true);
 
   return (
@@ -43,24 +53,43 @@ const Frame = ({ url, title }) => {
         height: '100%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        overflow: 'hidden'
       }}
     >
       {loading ? <div className="spinner" /> : null}
 
-      <iframe
-        src={url}
-        frameBorder="0"
-        title={title}
-        style={{
-          width: '100%',
-          height: '100%',
-          display: loading ? 'none' : 'inline-block'
-        }}
-        onLoad={() => {
-          setLoading(false);
-        }}
-      />
+      {type === 'iframe' ? (
+        <iframe
+          src={url}
+          frameBorder="0"
+          title={title}
+          style={{
+            width: '100%',
+            height: '100%',
+            display: loading ? 'none' : 'inline-block'
+          }}
+          onLoad={() => {
+            setLoading(false);
+          }}
+        />
+      ) : type === 'video' ? (
+        <video
+          src={url}
+          onLoadedMetadata={() => {
+            setLoading(false);
+          }}
+          muted
+          loop
+          controls
+          style={{
+            outline: 'none',
+            maxHeight: '90%',
+            maxWidth: '100%',
+            display: loading ? 'none' : 'inline-block'
+          }}
+        ></video>
+      ) : null}
     </div>
   );
 };
@@ -113,7 +142,7 @@ class Sites extends Component {
         mouseDragEnabled
         dotsDisabled
         buttonsDisabled
-        autoPlay={this.state.playing}
+        // autoPlay={this.state.playing}
         duration={600}
         autoPlayInterval={4000}
         items={galleryItems}
@@ -151,16 +180,20 @@ export default class Portfolio extends Component {
   buttonLeave = () => {
     this.child.current.play();
   };
+  focusHandler = (url = 'eminqasimov.xyz') => {
+    window.open(url, '_blank');
+  };
   render() {
     return (
-      <section className="portfolio bg" id="portfolio">
+      <section className="portfolio" id="portfolio">
         <div className="container">
+          <p>My</p>
+          <h1>Portfolio</h1>
           <FirefoxBrowserFrame
             style={{
               width: '100%',
-              height: 'calc(104% + 4em)',
+              height: '89%',
               position: 'relative',
-              top: '-4.8em',
               left: '0'
             }}
             tabbar={true}
@@ -169,6 +202,7 @@ export default class Portfolio extends Component {
             rightClickHandler={this.onNext}
             buttonEnter={this.buttonEnter}
             buttonLeave={this.buttonLeave}
+            focusHandler={this.focusHandler}
           >
             <Sites ref={this.child} slideChanged={this.handleSlideChange} />
           </FirefoxBrowserFrame>

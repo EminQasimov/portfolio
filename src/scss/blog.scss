@@ -1,23 +1,36 @@
 .blog {
+  @media screen and (max-width: 1024px) {
+    font-size: 0.8em;
+  }
   .container {
-    padding: 0 0 0 1em;
+    padding: 2em;
     border-top: 1px solid transparent;
+    & > h1 {
+      font-size: 5em;
+      font-weight: 700;
+      color: $white;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+    }
+    & > p {
+      font-size: 2.5em;
+      color: $white;
+      opacity: 0.8;
+      margin-left: 10px;
+      font-weight: 400;
+    }
   }
-  h1 {
-    font-size: 5em;
-    padding: 1em 0 0.4em 0em;
-    font-weight: 700;
-    color: $white;
-  }
+
   .articles {
-    transform: scale(0.94);
+    width: 100%;
   }
 
   .card {
     background: $white;
     overflow: hidden;
     user-select: none;
-    margin-right: 1em;
+    margin: 10px;
     &::after {
       content: ' ';
       display: block;
@@ -66,7 +79,7 @@
     }
     .img__wrapper {
       width: 100%;
-      height: 300px;
+      height: 30em;
       position: relative;
       transform: scale(1);
       transition: all 0.5s ease-in-out;
@@ -82,7 +95,7 @@
     }
     &__title {
       padding: 2em;
-      height: 200px;
+      height: 20em;
       position: relative;
       bottom: 0;
       transition: all 0.5s ease-in-out;
@@ -117,17 +130,3 @@
 .grab {
   cursor: grab;
 }
-// .alice-carousel {
-//   // display: flex;
-//   &:hover {
-//     cursor: grab;
-//   }
-
-//   & > div {
-//     // flex: 1;
-//   }
-//   &__prev-btn {
-//   }
-//   &__next-btn {
-//   }
-// }

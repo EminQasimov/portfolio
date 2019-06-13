@@ -8,8 +8,6 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-width: thin;
-  overscroll-behavior: contain;
 }
 body {
   font-size: 65.2%;
@@ -27,6 +25,7 @@ li {
 }
 button {
   user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .scroll-wrapper {
@@ -35,9 +34,6 @@ button {
   // overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  // @media screen and (min-width: 800px) and (min-height: 600px){
-  //   overscroll-behavior: none;//don't scroll in the end
-  // }
 }
 main.main-wrapper {
   margin: 0 auto;
@@ -53,56 +49,6 @@ main.main-wrapper {
   padding: 0 2em;
 }
 
-main.main-wrapper > div > section {
-  height: 100vh;
-}
-@media screen and (min-height: 961px) {
-  main.main-wrapper > div {
-    position: relative !important;
-  }
-  main.main-wrapper > div > section {
-    height: 900px;
-  }
-  .blog {
-    height: 800px !important;
-  }
-  .container {
-    min-height: 100% !important;
-  }
-  .stuck {
-    display: none !important;
-  }
-  .bg {
-    background-image: none !important;
-  }
-  .intro {
-    background: url(../assets/bg.png) 0px 0px / auto 102% no-repeat,
-      linear-gradient(
-        -225deg,
-        #fb3c00 0%,
-        #ff3d00 29%,
-        #ff9800 67%,
-        #fff800 100%
-      ) !important;
-  }
-}
-@media screen and (max-width: 600px) {
-  main.main-wrapper > div {
-    position: relative !important;
-  }
-  main.main-wrapper > div > section {
-    height: 100vh;
-  }
-  .stuck {
-    display: none !important;
-  }
-}
-@media screen and (max-width: 769px) {
-  .spinner {
-    font-size: 0.4em !important;
-  }
-}
-
 .bg {
   background: url(../assets/bg.png) 0px 0px / auto 102vh no-repeat fixed;
 }
@@ -116,12 +62,12 @@ main.main-wrapper > div > section {
   pointer-events: none;
 }
 .social {
-  background-color: rgb(84, 40, 131);
+  background-color: #542883; //#3b5998 facebook color
   z-index: 2;
 }
 
 .blog {
-  background-color: rgb(150, 224, 114);
+  background-color: #02b875; //medium.com color
   z-index: 3;
 }
 .portfolio {
@@ -135,63 +81,4 @@ main.main-wrapper > div > section {
 .contact {
   background-color: #e91e63;
   z-index: 11;
-}
-
-.spinner {
-  position: relative;
-  font-size: 0.5em;
-  width: 15em;
-  height: 15em;
-  background-color: rgba(43, 42, 42, 0.151);
-  overflow: hidden;
-  border-radius: 50%;
-}
-.spinner::after {
-  content: '';
-  display: block;
-  width: 9.5em;
-  height: 9.5em;
-  background: linear-gradient(295deg, red 0%, #fff800fc 100%);
-  position: absolute;
-  left: 7.5em;
-  top: -1.5em;
-  opacity: 0.9;
-  transform-origin: left bottom;
-  animation: spin 1.5s linear infinite;
-}
-
-.spinner::before {
-  content: '';
-  display: block;
-  width: 14em;
-  height: 14em;
-  position: absolute;
-  border-radius: 100%;
-  margin: 0.5em;
-  z-index: 3;
-  background-color: #fff;
-}
-.spinner-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  position: fixed;
-  z-index: 999999999;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate3d(0, 0, 1, 0deg) skewX(-65deg) scale3d(1, 1, 1);
-  }
-  50% {
-    transform: rotate3d(0, 0, 1, 360deg) skewY(45deg) scale3d(1, 1.4, 1);
-  }
-  100% {
-    transform: rotate3d(0, 0, 1, 720deg) skewX(-65deg) scale3d(1, 1, 1);
-  }
 }

@@ -34,12 +34,13 @@ export default function Social() {
             style={{
               width: '100%',
               height: 'calc(105% + 4em)',
-              borderRadius: '1em',
+              borderRadius: '0',
               position: 'relative',
-              top: '-3.8em',
+              top: '-4em',
               left: '0'
             }}
             tabbar={false}
+            focusHandler={url => window.open('https://' + url, '_blank')}
           >
             <FacebookMobile data={PostData} />
           </FirefoxBrowserFrame>

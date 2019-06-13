@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Scrollbars } from 'react-custom-scrollbars';
 import { FacebookF } from 'styled-icons/fa-brands/FacebookF';
 import { Search } from 'styled-icons/evil/Search';
 import { Gear } from 'styled-icons/octicons/Gear';
@@ -26,12 +25,10 @@ const Post = ({ postDate, video }) => {
         <span />
         <div className="author">
           <div className="name">
-            <a href="https://facebook.com/emin.qasimovdia">Emin Qasimov</a>
+            <a href="https://facebook.com/emin.qasimovdia">Emin Qasimov</a>{' '}
             <p>
-              {' '}
-              shared a video to the group:
+              shared a video to the group:{' '}
               <a href="https://www.facebook.com/groups/frontenddevelopersazerbaijan/">
-                {' '}
                 Frontend Developers - Azerbaijan
               </a>
               .
@@ -83,34 +80,30 @@ export default function FacebookMobile({ data = [] }) {
           </span>
         </div>
       </header>
-      <main>
-        <div className="fb-middle">
-          <Scrollbars style={{ width: '100%', height: '100%' }}>
-            <div className="story-wrapper">
-              <h1>Stories</h1>
-              <ul className="stories">
-                <li className="story" />
-                <li className="story" />
-                <li className="story" />
-                <li className="story" />
-                <li className="story" />
-                <li className="story" />
-                <li className="story" />
-                <li className="story" />
-              </ul>
-            </div>
-            <div className="fb-send">
-              <div className="post-profile" />
-              <div className="send-input">Add a post</div>
-              <div className="send-button">
-                <Image />
-              </div>
-            </div>
-
-            <div className="fb-posts">{posts}</div>
-          </Scrollbars>
+      <div className="fb-middle">
+        <div className="story-wrapper">
+          <h1>Stories</h1>
+          <ul className="stories">
+            <li className="story" />
+            <li className="story" />
+            <li className="story" />
+            <li className="story" />
+            <li className="story" />
+            <li className="story" />
+            <li className="story" />
+            <li className="story" />
+          </ul>
         </div>
-      </main>
+        <div className="fb-send">
+          <div className="post-profile" />
+          <div className="send-input">Add a post</div>
+          <div className="send-button">
+            <Image />
+          </div>
+        </div>
+
+        <div className="fb-posts">{posts}</div>
+      </div>
     </div>
   );
 }

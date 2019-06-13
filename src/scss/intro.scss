@@ -44,6 +44,9 @@
       }
       &:last-child {
         margin-right: 0;
+        // a {
+        //   padding-right: 0;
+        // }
       }
       &:first-child {
         a {
@@ -123,6 +126,11 @@
     }
   }
   .social-buttons {
+    a {
+      display: inline-block;
+      transform: translateY(10px);
+      transition: all 0.3s linear;
+    }
     li {
       display: inline-block;
       font-size: 2em;
@@ -170,9 +178,29 @@
   }
 }
 
-@keyframes pulse {
-  to {
-    opacity: 0;
-    transform: scale(4);
+@keyframes dance {
+  0%,
+  100% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.dance {
+  .social-buttons {
+    &:hover a {
+      animation-play-state: paused;
+    }
+    a {
+      animation: dance 0.8s ease-in-out 1 alternate;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    .social-buttons a:nth-of-type(#{$i}) {
+      animation-delay: #{$i/10}s;
+    }
   }
 }

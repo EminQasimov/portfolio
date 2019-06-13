@@ -1,0 +1,58 @@
+.spinner {
+  position: relative;
+  font-size: 0.5em;
+  width: 15em;
+  height: 15em;
+  background-color: rgba(43, 42, 42, 0.151);
+  overflow: hidden;
+  border-radius: 50%;
+}
+.spinner::after {
+  content: '';
+  display: block;
+  width: 9.5em;
+  height: 9.5em;
+  background: linear-gradient(295deg, red 0%, #fff800fc 100%);
+  position: absolute;
+  left: 7.5em;
+  top: -1.5em;
+  opacity: 0.9;
+  transform-origin: left bottom;
+  animation: spin 1.5s linear infinite;
+}
+
+.spinner::before {
+  content: '';
+  display: block;
+  width: 14em;
+  height: 14em;
+  position: absolute;
+  border-radius: 100%;
+  margin: 0.5em;
+  z-index: 3;
+  background-color: #fff;
+}
+.spinner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  position: fixed;
+  z-index: 999999999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg) skewX(-65deg) scale3d(1, 1, 1);
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 360deg) skewY(45deg) scale3d(1, 1.4, 1);
+  }
+  100% {
+    transform: rotate3d(0, 0, 1, 720deg) skewX(-65deg) scale3d(1, 1, 1);
+  }
+}

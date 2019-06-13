@@ -1,10 +1,10 @@
-$myimg: "https://s.cdpn.io/profiles/user/2961445/80.jpg?1553082357";
-$avatar: "https://i.pravatar.cc/64?img=";
-$photo1: "https://images.unsplash.com/photo-1558417942-4aca90f81642?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
-$photo2: "https://images.unsplash.com/photo-1558333115-fe12aa457af8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
-$photo3: "https://images.unsplash.com/photo-1558281050-4c33200099c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
-$photo4: "https://images.unsplash.com/photo-1558298336-360a2280e580?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
-$photo5: "https://images.unsplash.com/photo-1526237377175-22e94a1ed9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80";
+$myimg: 'https://s.cdpn.io/profiles/user/2961445/80.jpg?1553082357';
+$avatar: 'https://i.pravatar.cc/64?img=';
+$photo1: 'https://images.unsplash.com/photo-1558417942-4aca90f81642?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80';
+$photo2: 'https://images.unsplash.com/photo-1558333115-fe12aa457af8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80';
+$photo3: 'https://images.unsplash.com/photo-1558281050-4c33200099c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80';
+$photo4: 'https://images.unsplash.com/photo-1558298336-360a2280e580?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80';
+$photo5: 'https://images.unsplash.com/photo-1526237377175-22e94a1ed9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80';
 $facebook-blue: #1978f6;
 $gray: #ececf0;
 
@@ -79,13 +79,13 @@ $gray: #ececf0;
         }
 
         &::before {
-          content: " ";
+          content: ' ';
           display: inline-block;
           width: 2em;
           height: 2em;
           position: absolute;
           z-index: 9;
-          background: url(../../../assets/facebook-sprite.png) -2.9em -0.1em/11em
+          background: url(./../../assets/facebook-sprite.png) -2.9em -0.1em/11em
             15.9em no-repeat;
           top: 0.7em;
           left: 0.8em;
@@ -124,7 +124,7 @@ $gray: #ececf0;
 
           &:nth-child(4) {
             &::after {
-              content: " ";
+              content: ' ';
               display: inline-block;
               width: 3.4em;
               height: 3.4em;
@@ -184,7 +184,7 @@ $gray: #ececf0;
         order: 1;
       }
     }
-   
+
     @media screen and (max-width: 550px) {
       .fb-left {
         display: none;
@@ -216,7 +216,7 @@ $gray: #ececf0;
         text-shadow: 0 0 1px #585757;
 
         &::after {
-          content: "Create";
+          content: 'Create';
           display: inline-block;
           font-size: 11px;
           padding-right: 1em;
@@ -234,11 +234,11 @@ $gray: #ececf0;
           text-shadow: 0 0 1px #aaa;
 
           &::before {
-            content: " ";
+            content: ' ';
             display: inline-block;
             width: 32px;
             height: 30px;
-            background: url(../../../assets/facebook-sprite.png) center / 132px
+            background: url(./../../assets/facebook-sprite.png) center / 132px
               183px no-repeat;
             vertical-align: middle;
             margin-right: 0.5em;
@@ -276,11 +276,11 @@ $gray: #ececf0;
           }
 
           &:nth-child(8)::after {
-            content: " ";
+            content: ' ';
             display: inline-block;
             width: 20px;
             height: 20px;
-            background: url(../../../assets/facebook-sprite.png) center / 132px
+            background: url(./../../assets/facebook-sprite.png) center / 132px
               183px no-repeat;
             background-position: -106px -157px;
             opacity: 0.5;
@@ -310,7 +310,7 @@ $gray: #ececf0;
           text-shadow: 0 0 1px #585757;
           font-size: 1.5em;
           &::after {
-            content: "See All";
+            content: 'See All';
             display: block;
             font-size: 11px;
             color: $facebook-blue;
@@ -335,7 +335,7 @@ $gray: #ececf0;
             overflow: hidden;
             position: relative;
             &::before {
-              content: " + ";
+              content: ' + ';
               display: inline-block;
               width: 2em;
               height: 2em;
@@ -351,7 +351,7 @@ $gray: #ececf0;
               transform: scale(0.6);
             }
             &::after {
-              content: "Emin Qasimov";
+              content: 'Emin Qasimov';
               display: block;
               position: absolute;
               bottom: 0;
@@ -365,13 +365,13 @@ $gray: #ececf0;
             }
             @for $i from 2 through 6 {
               &:nth-child(#{$i})::before {
-                content: "\00a0 ";
+                content: '\00a0 ';
                 background: url($avatar+$i) center / cover no-repeat;
               }
             }
 
             &:nth-child(1) {
-              background-image: url(../../../assets/profile.jpg);
+              background-image: url(./../../assets/profile.jpg);
             }
             &:nth-child(2) {
               background-image: url($photo2);
@@ -390,19 +390,19 @@ $gray: #ececf0;
             }
 
             &:nth-child(2)::after {
-              content: "Richard Stally";
+              content: 'Richard Stally';
             }
             &:nth-child(3)::after {
-              content: "Brendan Moon";
+              content: 'Brendan Moon';
             }
             &:nth-child(4)::after {
-              content: "Quido Russian";
+              content: 'Quido Russian';
             }
             &:nth-child(5)::after {
-              content: "Torvaldes Kevin";
+              content: 'Torvaldes Kevin';
             }
             &:nth-child(6)::after {
-              content: "Lius Fernaddo";
+              content: 'Lius Fernaddo';
             }
           }
         }
@@ -437,7 +437,7 @@ $gray: #ececf0;
         .send-butto {
           width: 30px;
           height: 30px;
-          background: url(../../../assets/facebook-sprite.png) -21px -106px/102px
+          background: url(./../../assets/facebook-sprite.png) -21px -106px/102px
             153px no-repeat;
           border-radius: 50%;
         }
@@ -466,12 +466,12 @@ $gray: #ececf0;
         display: flex;
         align-items: center;
         &::after {
-          content: " ";
+          content: ' ';
           display: block;
           font-size: 11px;
           width: 25px;
           height: 16px;
-          background: url(../../../assets/facebook-sprite.png) -69px -65px/132px
+          background: url(./../../assets/facebook-sprite.png) -69px -65px/132px
             183px no-repeat;
           transform: scale(0.7);
           margin-left: auto;
@@ -480,7 +480,7 @@ $gray: #ececf0;
       .suggest-wrapper {
         h1 {
           &::after {
-            background: url(../../../assets/facebook-sprite.png) -64px -120px/126px
+            background: url(./../../assets/facebook-sprite.png) -64px -120px/126px
               177px no-repeat;
             height: 24px;
             opacity: 0.6;
@@ -525,12 +525,12 @@ $gray: #ececf0;
             margin-left: -0.8em;
             border-radius: 50%;
             border: 2px solid #fff;
-            background: url($avatar+"1") center / cover no-repeat;
+            background: url($avatar+'1') center / cover no-repeat;
             &:nth-child(2) {
-              background-image: url($avatar+"3");
+              background-image: url($avatar+'3');
             }
             &:nth-child(3) {
-              background-image: url($avatar+"4");
+              background-image: url($avatar+'4');
             }
           }
           .suggest-info {
@@ -549,7 +549,7 @@ $gray: #ececf0;
           text-shadow: 0 0 1px #aaa;
 
           &::before {
-            content: " ";
+            content: ' ';
             display: inline-block;
             width: 24px;
             height: 24px;

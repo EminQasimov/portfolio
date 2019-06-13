@@ -4,7 +4,7 @@ import { getMousePos, debounce } from '../utils/functions';
 import Emoji from './Emoji';
 
 const isNotMobile = () => {
-  if (window.innerWidth >= 800 && window.innerHeight >= 600) {
+  if (window.innerWidth >= 1000 && window.innerHeight >= 600) {
     return true;
   } else {
     return false;

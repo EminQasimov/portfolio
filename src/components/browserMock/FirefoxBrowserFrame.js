@@ -1,10 +1,10 @@
-import React from "react"
-import { Refresh } from "styled-icons/material/Refresh"
-import { ArrowLeft } from "styled-icons/feather/ArrowLeft"
-import { ArrowRight } from "styled-icons/feather/ArrowRight"
-import { Menu } from "styled-icons/feather/Menu"
-import { Star } from "styled-icons/fa-regular/Star"
-import { Close } from "styled-icons/material/Close"
+import React from 'react';
+import { Refresh } from 'styled-icons/material/Refresh';
+import { ArrowLeft } from 'styled-icons/feather/ArrowLeft';
+import { ArrowRight } from 'styled-icons/feather/ArrowRight';
+import { Menu } from 'styled-icons/feather/Menu';
+import { Star } from 'styled-icons/fa-regular/Star';
+import { Close } from 'styled-icons/material/Close';
 
 const FirefoxBrowserFrame = props => {
   let {
@@ -13,8 +13,9 @@ const FirefoxBrowserFrame = props => {
     leftClickHandler = () => {},
     rightClickHandler = () => {},
     buttonEnter = () => {},
-    buttonLeave = () => {}
-  } = props
+    buttonLeave = () => {},
+    focusHandler = () => {}
+  } = props;
 
   return (
     <div id="FirefoxBrowserFrame" style={{ ...props.style }}>
@@ -44,12 +45,18 @@ const FirefoxBrowserFrame = props => {
           <span onClick={rightClickHandler} className="right-button">
             <ArrowRight />
           </span>
-          <span style={{ display: tabbar ? "none" : "inline-block" }}>
+          <span style={{ display: tabbar ? 'none' : 'inline-block' }}>
             <Refresh />
           </span>
         </div>
         <div className="searchinput">
-          <input type="text" placeholder={url} />
+          <input
+            type="text"
+            value={url}
+            onClick={e => {
+              focusHandler(e.target.value);
+            }}
+          />
           <span>
             <Star />
           </span>
@@ -59,11 +66,11 @@ const FirefoxBrowserFrame = props => {
         </div>
       </div>
 
-      <div className="content" style={{ height: tabbar ? null : "100%" }}>
+      <div className="content" style={{ height: tabbar ? null : '100%' }}>
         {props.children}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FirefoxBrowserFrame
+export default FirefoxBrowserFrame;
