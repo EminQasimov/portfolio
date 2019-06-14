@@ -1,39 +1,42 @@
-import React, { useState } from 'react';
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
+import React, { useState, Component } from 'react';
+import Slider from 'react-slick';
+import '../scss/slick.css';
 
 const data = [
   {
-    img:
-      'https://images.unsplash.com/photo-1553787762-b5f5721f3270?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    title: 'Is Javascripanguage? Isanguage?Javascript OOP language?',
-    desc:
-      ' In this article I want to talk about is javascript OOlk a I want to talk acle I want to talk a not'
+    img: 'https://i.pravatar.cc/256?img=33',
+    title: '1 Is Javascripanguage? Isanguage?Javascript OOP language?',
+    desc: 'In this ar is javascript OOlk a I want to taa not'
   },
   {
-    img: 'https://picsum.photos/id/237/400/300',
-    title:
-      'Is Javascript OOP language? Is Javascript OOP language?Javascript OOP language?',
-    desc:
-      ' In this article I want to talk about is javascript OOP language orclecle I want to talk a I want to talk acle I want to talk a not'
+    img: 'https://i.pravatar.cc/256?img=35',
+    title: '2 Is Javascript OOP language? Is Javascript ',
+    desc: 'javascript OOP language orclecle I want to talkka not'
   },
   {
-    img: 'https://picsum.photos/id/137/500/300',
-    title: 'Is Javascript OOP languJavascript OOP language?',
-    desc:
-      ' In this article I want to talk about iorclecle I want to talk a I want to talk acle I want to talk a not'
+    img: 'https://i.pravatar.cc/256?img=37',
+    title: '3 Is Javascript OOP languJavascript OOP language?',
+    desc: 'to talk about iorclecle I want to talk a I wanot'
   },
   {
-    img: 'https://picsum.photos/id/132/500/300',
-    title: 'Is Javascript OOP languJavascript OOP language?',
-    desc:
-      ' In this article I want to talk about iorclecle I want to talk a I want to talk acle I want to talk a not'
+    img: 'https://i.pravatar.cc/256?img=22',
+    title: '4 Is Javascript OOP languJavascript OOP language?',
+    desc: 'Inis article I want to tant to talk a I want to tala not'
   },
   {
-    img: 'https://picsum.photos/id/127/500/300',
-    title: 'Is Javascript OOP languJavascript OOP language?',
-    desc:
-      ' In this article I want to talk about iorclecle I want to talk a I want to talk acle I want to talk a not'
+    img: 'https://i.pravatar.cc/256?img=44',
+    title: '5 Is Javascript OOP languJavascript OOP language?',
+    desc: 'In this article I want to talk about ia I alk a not'
+  },
+  {
+    img: 'https://i.pravatar.cc/256?img=24',
+    title: '6 Is Javascript OOP languJavascript OOP language?',
+    desc: 'In this article I want to talk about ia I alk a not'
+  },
+  {
+    img: 'https://i.pravatar.cc/256?img=4',
+    title: '7 Is Javascript OOP languJavascript OOP language?',
+    desc: 'In this article I want to talk about ia I alk a not'
   }
 ];
 
@@ -62,27 +65,60 @@ const Card = ({ img, title, desc }) => {
   );
 };
 
-const Gallery = () => {
-  const handleOnDragStart = e => e.preventDefault();
+class Gallery extends Component {
+  render() {
+    const settings = {
+      dots: false,
+      infinite: true,
+      lazyLoad: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 2,
+      arrows: false,
+      centerMode: true,
+      centerPadding: '60px',
+      autoplay: true,
+      autoplaySpeed: 2000,
+      cssEase: 'linear',
 
-  const Cards = data.map((post, i) => (
-    <Card {...post} onDragStart={handleOnDragStart} key={i} />
-  ));
-
-  return (
-    <AliceCarousel
-      mouseDragEnabled
-      dotsDisabled
-      buttonsDisabled
-      items={Cards}
-      responsive={{
-        0: { items: 1 },
-        767: { items: 2 },
-        1025: { items: 3 }
-      }}
-    />
-  );
-};
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            initialSlide: 1,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            initialSlide: 1,
+            slidesToScroll: 1,
+            centerMode: false
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            initialSlide: 1,
+            slidesToScroll: 1,
+            centerMode: false
+          }
+        }
+      ]
+    };
+    return (
+      <Slider {...settings}>
+        {data.map((post, i) => (
+          <Card {...post} key={i} />
+        ))}
+      </Slider>
+    );
+  }
+}
 
 export default function Blog() {
   return (

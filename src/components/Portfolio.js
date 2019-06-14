@@ -1,7 +1,8 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import FirefoxBrowserFrame from './browserMock/FirefoxBrowserFrame';
 import AliceCarousel from 'react-alice-carousel';
 import newFacebookDesignUI from '../assets/newFacebookDesignUI.mp4';
+import VisibilitySensor from 'react-visibility-sensor';
 
 const framesData = [
   {
@@ -32,65 +33,79 @@ const framesData = [
     url: 'https://eminqasimov.github.io/flag-animation',
     title: 'Interactive Flag Animation '
   },
-  {
-    url: newFacebookDesignUI,
-    title: 'new Facebook Design',
-    type: 'video'
-  },
+  // {
+  //   url: newFacebookDesignUI,
+  //   title: "new Facebook Design",
+  //   type: "video"
+  // },
   {
     url: 'https://eminqasimov.github.io/pure-css-photo-collage',
     title: 'Responsive Pure CSS Photo Collage'
   }
 ];
 
+// if (type === "video") {
+//   return (
+//     <video
+//       src={url}
+//       onLoadedMetadata={() => {
+//         setLoading(false)
+//       }}
+//       muted
+//       loop
+//       controls
+//       style={{
+//         outline: "none",
+//         maxHeight: "90%",
+//         maxWidth: "100%",
+//         display: loading ? "none" : "inline-block"
+//       }}
+//     ></video>
+//   )
+// }
+
 const Frame = ({ url, title, type = 'iframe' }) => {
-  const [loading, setLoading] = useState(true);
+  const [active, setActive] = React.useState(true);
+  const [loading, setLoading] = React.useState(true);
 
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        overflow: 'hidden'
+    <VisibilitySensor active={active}>
+      {({ isVisible }) => {
+        if (isVisible) {
+          console.log('i am visible');
+          setActive(false);
+          return (
+            <div
+              style={{
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden'
+              }}
+            >
+              {/* <div className={loading ? "spinner" : ""} /> */}
+              <iframe
+                src={url}
+                frameBorder="0"
+                title={title}
+                loading="lazy"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  display: loading ? 'none' : 'inline-block'
+                }}
+                onLoad={() => {
+                  setLoading(false);
+                }}
+              />
+            </div>
+          );
+        }
+        return null;
       }}
-    >
-      {loading ? <div className="spinner" /> : null}
-
-      {type === 'iframe' ? (
-        <iframe
-          src={url}
-          frameBorder="0"
-          title={title}
-          style={{
-            width: '100%',
-            height: '100%',
-            display: loading ? 'none' : 'inline-block'
-          }}
-          onLoad={() => {
-            setLoading(false);
-          }}
-        />
-      ) : type === 'video' ? (
-        <video
-          src={url}
-          onLoadedMetadata={() => {
-            setLoading(false);
-          }}
-          muted
-          loop
-          controls
-          style={{
-            outline: 'none',
-            maxHeight: '90%',
-            maxWidth: '100%',
-            display: loading ? 'none' : 'inline-block'
-          }}
-        ></video>
-      ) : null}
-    </div>
+    </VisibilitySensor>
   );
 };
 

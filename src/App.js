@@ -60,9 +60,9 @@ export default class App extends React.Component {
               <Intro />
             </Sticky>
 
-            <Sticky style={{ zIndex: this.state.size ? '999' : '1' }}>
+            {/* <Sticky style={{ zIndex: this.state.size ? "999" : "1" }}>
               <Social />
-            </Sticky>
+            </Sticky> */}
 
             <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
               <section className="stuck" />
