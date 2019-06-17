@@ -18,7 +18,7 @@ const FirefoxBrowserFrame = props => {
   } = props;
 
   return (
-    <div id="FirefoxBrowserFrame" style={{ ...props.style }}>
+    <div className="FirefoxBrowserFrame" style={{ ...props.style }}>
       {tabbar ? (
         <div className="tabbar">
           <div className="tab-buttons">
@@ -51,11 +51,13 @@ const FirefoxBrowserFrame = props => {
         </div>
         <div className="searchinput">
           <input
+            spellCheck="false"
             type="text"
             value={url}
             onClick={e => {
               focusHandler(e.target.value);
             }}
+            onChange={() => {}}
           />
           <span>
             <Star />

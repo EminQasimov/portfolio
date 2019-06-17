@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import FirefoxBrowserFrame from './browserMock/FirefoxBrowserFrame';
-import AliceCarousel from 'react-alice-carousel';
 import newFacebookDesignUI from '../assets/newFacebookDesignUI.mp4';
-import VisibilitySensor from 'react-visibility-sensor';
+import MoviesRoller from '../assets/Movies-Roller.mp4';
+import Slider from 'react-slick';
 
 const framesData = [
   {
@@ -12,10 +12,6 @@ const framesData = [
   {
     url: 'https://eminqasimov.github.io/colorui',
     title: 'Color UI Landing Page'
-  },
-  {
-    url: 'https://eminqasimov.github.io/movies-roller',
-    title: 'Rolling Movies Carousel '
   },
   {
     url: 'https://eminqasimov.github.io/opening-3d-box-animation',
@@ -33,140 +29,110 @@ const framesData = [
     url: 'https://eminqasimov.github.io/flag-animation',
     title: 'Interactive Flag Animation '
   },
-  // {
-  //   url: newFacebookDesignUI,
-  //   title: "new Facebook Design",
-  //   type: "video"
-  // },
   {
     url: 'https://eminqasimov.github.io/pure-css-photo-collage',
     title: 'Responsive Pure CSS Photo Collage'
+  },
+  {
+    url: 'https://codepen.io/eminqasimov/full/yrzZwJ',
+    title: 'mask login ui'
+  },
+  {
+    url: 'https://codepen.io/eminqasimov/full/eamvrQ',
+    title: 'Pie Image Carousel'
+  },
+  {
+    url: MoviesRoller,
+    title: 'Rolling Movies Carousel',
+    type: 'video'
+  },
+  {
+    url: newFacebookDesignUI,
+    title: 'new Facebook Design',
+    type: 'video'
   }
 ];
 
-// if (type === "video") {
-//   return (
-//     <video
-//       src={url}
-//       onLoadedMetadata={() => {
-//         setLoading(false)
-//       }}
-//       muted
-//       loop
-//       controls
-//       style={{
-//         outline: "none",
-//         maxHeight: "90%",
-//         maxWidth: "100%",
-//         display: loading ? "none" : "inline-block"
-//       }}
-//     ></video>
-//   )
-// }
-
 const Frame = ({ url, title, type = 'iframe' }) => {
-  const [active, setActive] = React.useState(true);
   const [loading, setLoading] = React.useState(true);
 
   return (
-    <VisibilitySensor active={active}>
-      {({ isVisible }) => {
-        if (isVisible) {
-          console.log('i am visible');
-          setActive(false);
-          return (
-            <div
-              style={{
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                overflow: 'hidden'
-              }}
-            >
-              {/* <div className={loading ? "spinner" : ""} /> */}
-              <iframe
-                src={url}
-                frameBorder="0"
-                title={title}
-                loading="lazy"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  display: loading ? 'none' : 'inline-block'
-                }}
-                onLoad={() => {
-                  setLoading(false);
-                }}
-              />
-            </div>
-          );
-        }
-        return null;
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden'
       }}
-    </VisibilitySensor>
+    >
+      {loading ? <div className="spinner" /> : null}
+
+      {type === 'video' ? (
+        <video
+          src={url}
+          onLoadedMetadata={() => {
+            setLoading(false);
+          }}
+          muted
+          controls
+          style={{
+            outline: 'none',
+            maxHeight: '90%',
+            maxWidth: '100%',
+            display: loading ? 'none' : 'inline-block'
+          }}
+        ></video>
+      ) : type === 'iframe' ? (
+        <iframe
+          className="myTarget"
+          src={url}
+          frameBorder="0"
+          title={title}
+          loading="lazy"
+          style={{
+            width: '100%',
+            height: '100%',
+            display: loading ? 'none' : 'inline-block'
+          }}
+          onLoad={() => setLoading(false)}
+        />
+      ) : null}
+    </div>
   );
 };
 
 class Sites extends Component {
-  state = {
-    playing: true,
-    currentIndex: 0,
-    itemsInSlide: 1,
-    responsive: { 0: { items: 1 } },
-    galleryItems: this.galleryItems()
+  next = () => {
+    this.slider.slickNext();
   };
-
-  galleryItems() {
-    return framesData.map((post, i) => <Frame {...post} key={i} />);
-  }
-
-  slidePrevPage = () => {
-    const currentIndex = this.state.currentIndex - this.state.itemsInSlide;
-    this.setState({ currentIndex });
+  prev = () => {
+    this.slider.slickPrev();
   };
-
-  slideNextPage = () => {
-    const {
-      itemsInSlide,
-      galleryItems: { length }
-    } = this.state;
-    let currentIndex = this.state.currentIndex + itemsInSlide;
-    if (currentIndex > length) currentIndex = length;
-    this.setState({ currentIndex });
-  };
-
-  handleOnSlideChange = event => {
-    const { itemsInSlide, item } = event;
-    this.setState({ itemsInSlide, currentIndex: item });
-    this.props.slideChanged(framesData[item].url);
-  };
-  pause() {
-    this.setState({ playing: false });
-  }
-  play() {
-    this.setState({ playing: true });
-  }
 
   render() {
-    const { currentIndex, galleryItems, responsive } = this.state;
-
+    const settings = {
+      dots: false,
+      arrows: false,
+      infinite: true,
+      lazyLoad: true,
+      speed: 400,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      swipe: false,
+      cssEase: 'linear',
+      pauseOnHover: true,
+      afterChange: index => {
+        this.props.slideChanged(framesData[index].url);
+      }
+    };
     return (
-      <AliceCarousel
-        mouseDragEnabled
-        dotsDisabled
-        buttonsDisabled
-        // autoPlay={this.state.playing}
-        duration={600}
-        autoPlayInterval={4000}
-        items={galleryItems}
-        slideToIndex={currentIndex}
-        responsive={responsive}
-        onInitialized={this.handleOnSlideChange}
-        onSlideChanged={this.handleOnSlideChange}
-        onResized={this.handleOnSlideChange}
-      />
+      <Slider ref={c => (this.slider = c)} {...settings}>
+        {framesData.map(frame => (
+          <Frame {...frame} key={frame.url} />
+        ))}
+      </Slider>
     );
   }
 }
@@ -181,19 +147,19 @@ export default class Portfolio extends Component {
   }
 
   onPrev = () => {
-    this.child.current.slidePrevPage();
+    this.child.current.prev();
   };
   onNext = () => {
-    this.child.current.slideNextPage();
+    this.child.current.next();
   };
   handleSlideChange = url => {
     this.setState({ url });
   };
   buttonEnter = () => {
-    this.child.current.pause();
+    // this.child.current.pause()
   };
   buttonLeave = () => {
-    this.child.current.play();
+    // this.child.current.play()
   };
   focusHandler = (url = 'eminqasimov.xyz') => {
     window.open(url, '_blank');

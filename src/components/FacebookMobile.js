@@ -28,7 +28,7 @@ const Post = ({ postDate, video }) => {
             <a href="https://facebook.com/emin.qasimovdia">Emin Qasimov</a>{' '}
             <p>
               shared a video to the group:{' '}
-              <a href="https://www.facebook.com/groups/frontenddevelopersazerbaijan/">
+              <a href="https://www.facebook.com/groups/frontenddevelopersazerbaijan">
                 Frontend Developers - Azerbaijan
               </a>
               .

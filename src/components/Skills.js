@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 
 const data = [
@@ -16,6 +16,16 @@ const data = [
     lang: 'javascript',
     percentage: '75%',
     color: '#f7df1e'
+  },
+  {
+    lang: 'React.js',
+    percentage: '70%',
+    color: '#00d8ff'
+  },
+  {
+    lang: 'Redux',
+    percentage: '70%',
+    color: 'blueviolet'
   }
 ];
 
@@ -36,15 +46,21 @@ const Skill = ({ lang, percentage, color }) => {
 };
 
 export default function Skills() {
+  const [active, setActive] = useState(true);
   return (
     <section className="skills" id="skills">
-      <div className="container">
-        <p>My</p>
-        <h1>Skills</h1>
-        {/* <div className="emin"></div> */}
+      <VisibilitySensor
+        active={active}
+        onChange={isVisible => {
+          if (isVisible) setActive(false);
+        }}
+      >
+        {({ isVisible }) => (
+          <div className="container">
+            <p>My</p>
+            <h1>Skills</h1>
+            {/* <div className="emin"></div> */}
 
-        <VisibilitySensor>
-          {({ isVisible }) => (
             <div
               className={
                 isVisible ? 'wrapper-two animate-width' : 'wrapper-two'
@@ -55,17 +71,10 @@ export default function Skills() {
                   <Skill {...e} key={e.lang} />
                 ))}
               </ul>
-              <div className="radial-progress-wrapper">
-                <div className="radial-progress">
-                  <div className="real-radial">
-                    <div className="hand"></div>
-                  </div>
-                </div>
-              </div>
             </div>
-          )}
-        </VisibilitySensor>
-      </div>
+          </div>
+        )}
+      </VisibilitySensor>
     </section>
   );
 }

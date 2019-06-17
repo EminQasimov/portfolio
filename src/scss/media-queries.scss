@@ -100,3 +100,28 @@
     ) !important;
   }
 }
+
+//remove all thing in edge sticky
+@supports (-ms-ime-align: auto) {
+  .tab-buttons span {
+    margin: 5px;
+  }
+  main.main-wrapper > div {
+    position: relative !important;
+  }
+  main.main-wrapper > div > section {
+    height: 900px;
+  }
+  .blog {
+    height: 800px !important;
+  }
+  .container {
+    min-height: 100% !important;
+  }
+  .stuck {
+    display: none !important;
+  }
+  .portfolio {
+    top: 0 !important;
+  }
+}

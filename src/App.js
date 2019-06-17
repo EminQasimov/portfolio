@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Intro from './components/Intro';
 import Social from './components/Social';
 import Blog from './components/Blog';
@@ -6,6 +6,7 @@ import Protfolio from './components/Portfolio';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Sticky from 'react-sticky-fill';
+
 // import firebase from "./firebaseConfig"
 // const articles = firebase.database().ref("/articles")
 
@@ -27,7 +28,7 @@ const isSmallAndBig = () => {
   }
 };
 
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,9 +61,9 @@ export default class App extends React.Component {
               <Intro />
             </Sticky>
 
-            {/* <Sticky style={{ zIndex: this.state.size ? "999" : "1" }}>
+            <Sticky style={{ zIndex: this.state.size ? '999' : '1' }}>
               <Social />
-            </Sticky> */}
+            </Sticky>
 
             <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
               <section className="stuck" />

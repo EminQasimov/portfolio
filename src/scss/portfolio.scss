@@ -67,13 +67,13 @@
       }
     }
   }
-  .alice-carousel,
-  .alice-carousel > div,
-  .alice-carousel__wrapper,
-  .alice-carousel ul,
-  .alice-carousel li {
-    height: 100%;
-    width: 100%;
+
+  .slick-slider,
+  .slick-list,
+  .slick-track,
+  .slick-slide,
+  .slick-slide > div {
+    height: 100% !important;
   }
 }
 

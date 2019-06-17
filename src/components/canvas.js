@@ -4,14 +4,17 @@ import { getMousePos, debounce } from '../utils/functions';
 import Emoji from './Emoji';
 
 const isNotMobile = () => {
-  if (window.innerWidth >= 1000 && window.innerHeight >= 600) {
+  const isChrome =
+    /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+
+  if (window.innerWidth >= 1000 && window.innerHeight >= 600 && isChrome) {
     return true;
   } else {
     return false;
   }
 };
 
-export default function Canvas(props) {
+export default function Canvas() {
   const canvasRef = useRef();
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
@@ -32,7 +35,7 @@ export default function Canvas(props) {
 
   const handleClick = e => {
     let { x, y } = getMousePos(canvasRef.current, e.nativeEvent);
-    if (window.innerWidth >= 800 && window.innerHeight >= 600) {
+    if (isNotMobile()) {
       Emoji.emojiList.forEach(emoji => {
         emoji.go(x, y);
       });
