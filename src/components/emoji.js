@@ -1,15 +1,15 @@
-import { rndm } from '../utils/functions';
+import { rndm, requestInterval } from '../utils/functions';
 import videoSrc from '../assets/emojis.mp4';
+import extractFramesFromVideo from '../utils/extractFramesFromVideo';
 
-let VIDEO,
-  CANVAS,
-  CTX,
-  H,
-  W,
+let CTX,
+  H, //CANVAS.height
+  W, //CANVAS.width
   H2, //videoHeight/2
   W3, // videoWidth/3
-  canMakeEmojis,
-  frame,
+  currentFrame = 0,
+  FRAME,
+  FRAMES,
   { floor } = Math;
 
 const checkOverBound = (x, y, r) => {
@@ -31,23 +31,24 @@ const checkOverBound = (x, y, r) => {
   return [floor(X), floor(Y)];
 };
 
-class Emoji {
-  constructor(size, x = 0, y = 0, cropX, cropY) {
+export default class Emoji {
+  constructor(cropX, cropY, x, y) {
+    let size = rndm(1.5, 3);
     let r = floor(W3 / size / 2);
-    let [X, Y] = checkOverBound(x, y, r);
+    let [X, Y] = checkOverBound(rndm(0, W), rndm(0, H), r);
+
     this.r = r;
-    this.x = X;
-    this.y = Y;
-    this.dx = rndm(-2, 2);
-    this.dy = rndm(-2, 2);
-    this.alfa = 0;
-    this.size = floor(size);
+    this.size = size;
+    this.x = x || X;
+    this.y = y || Y;
+    this.dx = rndm(-3, 3);
+    this.dy = rndm(-3, 3);
     this.cropX = cropX;
     this.cropY = cropY;
   }
 
   draw() {
-    let { x, y, cropX, cropY, r, alfa } = this;
+    let { x, y, cropX, cropY, r } = this;
     // circular clipping path
     CTX.save();
     CTX.beginPath();
@@ -55,9 +56,8 @@ class Emoji {
     CTX.clip();
     CTX.translate(x, y);
     CTX.save();
-
-    CTX.rotate((alfa * Math.PI) / 180);
-    CTX.drawImage(VIDEO, cropX * W3, cropY * H2, W3, H2, -r, -r, 2 * r, 2 * r);
+    // CTX.rotate((alfa * Math.PI) / 140)
+    CTX.drawImage(FRAME, cropX * W3, cropY * H2, W3, H2, -r, -r, 2 * r, 2 * r);
     CTX.restore();
     CTX.restore();
 
@@ -79,10 +79,9 @@ class Emoji {
 
     this.dx = floor(this.dx);
     this.dy = floor(this.dy);
-    this.x += this.dx;
-    this.y += this.dy;
+    this.x += this.dx / 2;
+    this.y += this.dy / 2;
   }
-
   go(x, y) {
     let [X, Y] = checkOverBound(x, y, this.r);
     this.x = X;
@@ -92,100 +91,64 @@ class Emoji {
   }
 } //class Emoji
 
-const createVideo = cb => {
-  if (!VIDEO) {
-    VIDEO = true;
-    let video = document.createElement('video');
-    let type;
-    if (video.canPlayType('video/mp4')) {
-      type = 'movie.mp4';
-    } else {
-      type = 'movie.ogg';
-    }
-    video.type = type;
-    video.loop = true;
-    video.autoplay = true;
-    video.defaultMuted = true;
-    video.muted = true;
-    video.controls = false;
-    video.poster = '';
-    video.preload = 'auto';
-
-    video.addEventListener('loadedmetadata', function() {
-      this.play();
-    });
-
-    video.addEventListener(
-      'play',
-      function() {
-        VIDEO = this;
-        requestAnimationFrame(() => start(cb));
-      },
-      false
-    );
-    video.removeEventListener(
-      'error',
-      function() {
-        cancelAnimationFrame(frame);
-      },
-      true
-    );
-
-    video.src = videoSrc;
-  } else {
-    cb();
-  }
-};
-
-const render = () => {
-  CTX.clearRect(0, 0, CANVAS.width, CANVAS.height);
-  Emoji.emojiList.forEach(emoji => {
-    emoji.draw();
-  });
-};
-
-const start = cb => {
-  if (!canMakeEmojis) {
-    canMakeEmojis = true;
-    H2 = VIDEO.videoHeight / 2;
-    W3 = VIDEO.videoWidth / 3;
-    cb();
-  }
-
-  if (!VIDEO.paused || !VIDEO.ended) {
-    render();
-    if (VIDEO.currentTime >= VIDEO.duration - 0.03) {
-      setTimeout(() => {
-        frame = requestAnimationFrame(start);
-      }, 60); // chrome cant handle seemless video loop,
-    } else {
-      frame = requestAnimationFrame(start);
-    }
-  }
-}; // start
-
-const createEmojis = () => {
+const createEmojis = count => {
   for (let i = 0; i < 3; i++) {
     for (let k = 0; k < 2; k++) {
-      Emoji.emojiList.push(
-        new Emoji(rndm(1.4, 4), rndm(0, W), rndm(0, H), i, k)
-      ); //size, x,y, cropX, cropY
+      Emoji.emojiNames.push(new Emoji(i, k)); // cropX, cropY
+    }
+  }
+
+  for (let c = 0; c < count; c++) {}
+};
+
+const drawEmojis = img => {
+  CTX.clearRect(0, 0, W, H);
+  Emoji.emojiList.forEach(emoji => {
+    emoji.draw(img);
+  });
+  requestAnimationFrame(drawEmojis);
+};
+
+Emoji.handleResize = (w, h) => {
+  W = w;
+  H = h;
+};
+
+Emoji.add = (x, y) => {
+  for (let i = 0; i < 3; i++) {
+    for (let k = 0; k < 2; k++) {
+      Emoji.emojiList.push(new Emoji(i, k, x, y)); // cropX, cropY
     }
   }
 };
+Emoji.exist = false;
 
-Emoji.generate = (canvas, count = 4) => {
+Emoji.generate = (canvas, count = 2) => {
   Emoji.emojiList = []; //reset list
-  CANVAS = canvas; // make canvas global
+  Emoji.emojiNames = []; //emojis Names WoW Like Love ...
+  Emoji.exist = true;
   CTX = canvas.getContext('2d');
   W = canvas.width;
   H = canvas.height;
 
-  createVideo(() => {
-    for (let i = 1; i <= count; i++) {
-      createEmojis();
-    }
-  });
-};
+  async function createVideoFrames() {
+    let [frames, w, h] = await extractFramesFromVideo(videoSrc, 8); // offscreen canvas
 
-export default Emoji;
+    H2 = h / 2; // Emoji aspect ratio 3x2
+    W3 = w / 3;
+    FRAMES = frames;
+    FRAME = FRAMES[0];
+    createEmojis(count); // 2 count x 6 = 12 emojis
+    drawEmojis();
+
+    requestInterval(function(e) {
+      if (currentFrame >= FRAMES.length - 1) {
+        currentFrame = 1;
+      }
+      FRAME = FRAMES[currentFrame++];
+    }, 70);
+
+    console.log(frames, w, h);
+  }
+  createVideoFrames();
+};
