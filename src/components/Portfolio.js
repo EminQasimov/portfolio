@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import FirefoxBrowserFrame from './browserMock/FirefoxBrowserFrame';
-import newFacebookDesignUI from '../assets/newFacebookDesignUI.mp4';
-import MoviesRoller from '../assets/Movies-Roller.mp4';
 import Slider from 'react-slick';
 
 const framesData = [
@@ -42,18 +40,16 @@ const framesData = [
     title: 'Pie Image Carousel'
   },
   {
-    url: MoviesRoller,
-    title: 'Rolling Movies Carousel',
-    type: 'video'
+    url: 'https://player.vimeo.com/video/343181095',
+    title: 'Rolling Movies Carousel'
   },
   {
-    url: newFacebookDesignUI,
-    title: 'new Facebook Design',
-    type: 'video'
+    url: 'https://player.vimeo.com/video/343177258',
+    title: 'new Facebook Design'
   }
 ];
 
-const Frame = ({ url, title, type = 'iframe' }) => {
+const Frame = ({ url, title }) => {
   const [loading, setLoading] = React.useState(true);
 
   return (
@@ -69,36 +65,19 @@ const Frame = ({ url, title, type = 'iframe' }) => {
     >
       {loading ? <div className="spinner" /> : null}
 
-      {type === 'video' ? (
-        <video
-          src={url}
-          onLoadedMetadata={() => {
-            setLoading(false);
-          }}
-          muted
-          controls
-          style={{
-            outline: 'none',
-            maxHeight: '90%',
-            maxWidth: '100%',
-            display: loading ? 'none' : 'inline-block'
-          }}
-        ></video>
-      ) : type === 'iframe' ? (
-        <iframe
-          className="myTarget"
-          src={url}
-          frameBorder="0"
-          title={title}
-          loading="lazy"
-          style={{
-            width: '100%',
-            height: '100%',
-            display: loading ? 'none' : 'inline-block'
-          }}
-          onLoad={() => setLoading(false)}
-        />
-      ) : null}
+      <iframe
+        className="myTarget"
+        src={url}
+        frameBorder="0"
+        title={title}
+        loading="lazy"
+        style={{
+          width: '100%',
+          height: '100%',
+          display: loading ? 'none' : 'inline-block'
+        }}
+        onLoad={() => setLoading(false)}
+      />
     </div>
   );
 };

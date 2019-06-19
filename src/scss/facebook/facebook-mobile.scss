@@ -277,6 +277,12 @@ $gray: #ececf0;
     height: 7.2em;
     padding: 1.2em;
     margin: 0 auto;
+    @media (max-width: 500px) {
+      font-size: 9px !important;
+    }
+    @media (max-width: 450px) {
+      font-size: 8px !important;
+    }
     span {
       display: inline-block;
       background: url(./../assets/emin.jpg) center / cover no-repeat;

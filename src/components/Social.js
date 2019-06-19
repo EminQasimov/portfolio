@@ -33,7 +33,7 @@ export default function Social() {
             url="facebook.com/emin.qasimovdia"
             style={{
               width: '100%',
-              height: 'calc(105% + 4em)',
+              height: '105%',
               borderRadius: '0',
               position: 'relative',
               top: '-4em',

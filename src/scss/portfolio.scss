@@ -16,6 +16,10 @@
     color: $white;
     margin-top: -10px;
     margin-bottom: 10px;
+    @media (max-width: 768px) {
+      font-size: 3.5em;
+      margin-top: 0px;
+    }
   }
   p {
     font-size: 2.5em;
@@ -23,6 +27,9 @@
     opacity: 0.8;
     font-weight: 400;
     margin-top: 10px;
+    @media (max-width: 768px) {
+      font-size: 1.5em;
+    }
   }
   .buttons:hover span,
   .buttons:hover svg {

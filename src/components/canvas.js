@@ -1,64 +1,64 @@
-// const isNotMobile = () => {
-//   if (window.innerWidth >= 1000 && window.innerHeight >= 600 ) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
 import React, { useRef, useEffect } from 'react';
 import '../utils/requestAnimationFrame.js';
-import { getMousePos, debounce } from '../utils/functions';
+import { getMousePos, isNotMobile } from '../utils/functions';
 import Emoji from './Emoji';
 
-export default function Canvas(props) {
-  let inter;
-  const canvasRef = useRef();
-  const resizeCanvas = () => {
-    const canvas = canvasRef.current;
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-    return [canvas.width, canvas.height];
-  };
+export default function Canvas() {
+  let inter,
+    down,
+    X,
+    Y,
+    canvasRef = useRef();
+
   useEffect(() => {
+    function resizeCanvas() {
+      const canvas = canvasRef.current,
+        w = canvas.offsetWidth,
+        h = canvas.offsetHeight;
+      canvas.width = w;
+      canvas.height = h;
+
+      isNotMobile() && !Emoji.exist && Emoji.generate(canvas);
+      Emoji.exist && Emoji.handleResize(w, h);
+    }
+
     resizeCanvas();
-    // if (window.innerWidth >= 800 && window.innerHeight >= 600) {
-    Emoji.generate(canvasRef.current);
-    // }
 
-    const myEfficientFn = debounce(function() {
-      let [w, h] = resizeCanvas();
-      Emoji.handleResize(w, h);
-    }, 250);
-
-    window.addEventListener('resize', myEfficientFn);
+    window.addEventListener('resize', resizeCanvas);
     return () => {
-      window.removeEventListener('resize', myEfficientFn);
+      window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
 
   const handleMouseDown = e => {
-    const canvas = canvasRef.current;
-
-    let { x, y } = getMousePos(canvas, e.nativeEvent);
-    inter = setInterval(() => {
-      if (Emoji.exist) {
-        Emoji.add(x, y);
-        // Emoji.emojiList.forEach((emoji)=>{
-        //   emoji.go(x, y)
-        // })
-      }
-    }, 100);
+    if (Emoji.exist) {
+      down = true;
+      let { x, y } = getMousePos(canvasRef.current, e.nativeEvent);
+      X = x;
+      Y = y;
+      inter = setInterval(() => {
+        Emoji.add(X, Y);
+      }, 100);
+    }
   };
 
-  const handleMouseUp = e => {
-    clearInterval(inter);
+  const handleMouseMove = e => {
+    if (down) {
+      let { x, y } = getMousePos(canvasRef.current, e.nativeEvent);
+      X = x;
+      Y = y;
+    }
   };
 
   return (
     <canvas
       ref={canvasRef}
       onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
+      onMouseMove={handleMouseMove}
+      onMouseUp={() => {
+        down = false;
+        clearInterval(inter);
+      }}
     >
       Please use Chrome for the best experience
     </canvas>

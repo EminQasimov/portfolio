@@ -4,13 +4,15 @@ import '../scss/slick.css';
 
 const data = [
   {
-    img: 'https://i.pravatar.cc/256?img=33',
-    title: '1 Is Javascripanguage? Isanguage?Javascript OOP language?',
+    img:
+      'https://cdn-images-1.medium.com/max/1000/1*SWiqBK7dggqvJegzNpyRsQ.jpeg',
+    title: 'ES2017 (ES8) ilə Javascript-ə gələn yeniliklər nələrdir?',
     desc: 'In this ar is javascript OOlk a I want to taa not'
   },
   {
-    img: 'https://i.pravatar.cc/256?img=35',
-    title: '2 Is Javascript OOP language? Is Javascript ',
+    img:
+      'https://cdn-images-1.medium.com/max/1500/1*PR3klDbot3ZS9Kp69LYtHA.png',
+    title: 'React app-ı Firebase-ə necə yükləmək (deploy) olar? ',
     desc: 'javascript OOP language orclecle I want to talkka not'
   },
   {
@@ -22,21 +24,6 @@ const data = [
     img: 'https://i.pravatar.cc/256?img=22',
     title: '4 Is Javascript OOP languJavascript OOP language?',
     desc: 'Inis article I want to tant to talk a I want to tala not'
-  },
-  {
-    img: 'https://i.pravatar.cc/256?img=44',
-    title: '5 Is Javascript OOP languJavascript OOP language?',
-    desc: 'In this article I want to talk about ia I alk a not'
-  },
-  {
-    img: 'https://i.pravatar.cc/256?img=24',
-    title: '6 Is Javascript OOP languJavascript OOP language?',
-    desc: 'In this article I want to talk about ia I alk a not'
-  },
-  {
-    img: 'https://i.pravatar.cc/256?img=4',
-    title: '7 Is Javascript OOP languJavascript OOP language?',
-    desc: 'In this article I want to talk about ia I alk a not'
   }
 ];
 

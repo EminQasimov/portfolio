@@ -32,7 +32,7 @@ export default function Intro() {
           </div>
           <div>
             <h1>Emin Qasımov</h1>
-            <h3>Front-end Developer</h3>
+            <h3>Frontend Developer</h3>
           </div>
           <div>
             <div className="cv-buttons">
