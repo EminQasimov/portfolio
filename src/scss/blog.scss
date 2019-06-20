@@ -47,60 +47,25 @@
       content: ' ';
       display: block;
       position: relative;
-      bottom: -4px;
+      bottom: 0px;
       height: 4px;
       width: 100%;
       transition: transform 0.3s ease-in-out;
-      background: #b5272d;
+      background: #e41b25;
       z-index: 9;
-    }
-
-    &::before {
-      content: ' ';
-      display: block;
-      height: 2px;
-      width: 2px;
-      background: linear-gradient(
-        30deg,
-        rgba(#1a2a63, 0.5),
-        rgba(#1a2a63, 0.3)
-      );
-      transition: opacity 0.3s ease-in-out;
-      opacity: 0;
-      z-index: 4;
-      transform: translate(20px, 20px) scale(1000);
-      position: relative;
+      opacity: 1;
     }
 
     &:hover {
-      &::after {
-        transform: translateY(-4px);
-      }
-
-      &::before {
-        opacity: 1;
-      }
-
-      .img__wrapper {
-        transform-origin: center 0;
-        transform: scale(1.8);
-      }
-
-      .card__title {
-        transform: translateY(-15%);
-
-        h3,
-        p {
-          color: $white;
-        }
+      .img__wrapper::before {
+        opacity: 0.8;
       }
     }
 
     .img__wrapper {
       width: 100%;
-      height: 30em;
+      height: 25em;
       position: relative;
-      transform: scale(1);
       transition: all 0.5s ease-in-out;
       top: -2px;
       z-index: 1;
@@ -109,40 +74,60 @@
       background-position: center;
       background-repeat: no-repeat;
 
+      &::before {
+        content: ' ';
+        display: block;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        background: linear-gradient(
+          30deg,
+          rgba(#1a2a63, 0.8),
+          rgba(#1a2a63, 0.5)
+        );
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+        z-index: 4;
+        position: absolute;
+      }
+
       img {
         object-fit: cover;
+        width: 100%;
+        height: 100%;
       }
     }
 
     &__title {
-      padding: 2em;
-      height: 20em;
+      padding: 1.6em;
+      min-height: 16em;
       position: relative;
       bottom: 0;
       transition: all 0.5s ease-in-out;
       z-index: 9;
-      transform: scale(1.01);
+      display: flex;
+      flex-direction: column;
 
-      &:hover {
-        h3 {
-          text-decoration: underline;
-        }
+      .paragraf {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        font-size: 1.5em;
+        opacity: 0.8;
+        transition: color 0.3s ease-in-out;
+        font-weight: 400;
       }
     }
 
     h3 {
-      font-size: 2em;
+      font-size: 1.8em;
       font-weight: 700;
       color: $black;
-      padding: 0.5em 0;
+      padding: 0;
       transition: color 0.3s ease-in-out;
-    }
-
-    p {
-      font-size: 1.5em;
-      opacity: 0.9;
-      transition: color 0.3s ease-in-out;
-      font-weight: 400;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -153,4 +138,17 @@
 
 .grab {
   cursor: grab;
+}
+
+.card {
+  .author-image {
+    width: 3.6em;
+    height: 3.6em;
+    margin-right: 1em;
+    border-radius: 50%;
+    background: url(../assets/emin.jpg) center/cover;
+  }
+  .author-data {
+    flex: 1;
+  }
 }

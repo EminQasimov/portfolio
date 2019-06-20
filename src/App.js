@@ -20,6 +20,8 @@ import Sticky from 'react-sticky-fill';
 //   console.log(err)
 // })
 
+// A long cache lifetime can speed up repeat visits to your page sonda cache et
+
 const isSmallAndBig = () => {
   if (window.innerWidth < 1024 || window.innerHeight > 1024) {
     return true;

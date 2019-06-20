@@ -180,7 +180,7 @@ Emoji.exist = false;
 
 Emoji.generate = (canvas, count = 13) => {
   Emoji.emojiList = []; //reset list
-
+  Emoji.exist = true;
   CTX = canvas.getContext('2d');
   W = canvas.width;
   H = canvas.height;
@@ -201,7 +201,7 @@ Emoji.generate = (canvas, count = 13) => {
       }
       FRAME = FRAMES[currentFrame++];
     }, 70);
-    Emoji.exist = true;
+
     console.log(frames, w, h);
   }
   createVideoFrames();

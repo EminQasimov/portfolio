@@ -114,88 +114,6 @@ $gray: #ececf0;
   overflow: hidden;
   overflow-y: scroll;
   padding: 1em 0.2em 0em 1em;
-  .story-wrapper {
-    margin: 1em;
-    overflow: hidden;
-    height: 18.5em;
-    opacity: 0.86;
-    h1 {
-      display: flex;
-      align-items: center;
-      font-weight: 100;
-      font-size: 1.5em;
-      opacity: 0.7;
-      &::after {
-        content: 'See All';
-        display: block;
-        font-size: 11px;
-        color: $facebook-blue;
-        margin-left: auto;
-      }
-    }
-    ul.stories {
-      white-space: nowrap;
-      width: 100%;
-      overflow-x: scroll;
-
-      li.story {
-        box-shadow: 0 2px 3px -1px rgb(139, 139, 139),
-          inset 0 0 0 100em rgba(0, 0, 0, 0.2);
-        border-radius: 0.8em;
-        display: inline-block;
-        list-style: none;
-        width: 10em;
-        height: 16em;
-        margin: 0.3em;
-        background: url($avatar+66) center / cover no-repeat;
-        overflow: hidden;
-        position: relative;
-        font-family: Helvetica, sans-serif;
-        &::before {
-          content: ' + ';
-          display: inline-block;
-          width: 2em;
-          height: 2em;
-          border-radius: 2em;
-          border: 2px solid rgb(255, 255, 255);
-          color: #fff;
-          font-weight: 100;
-          box-shadow: inset 0 0 0 2em rgba(20, 20, 20, 0.2);
-          margin: 0em;
-          text-align: center;
-          line-height: 2em;
-          font-size: 3em;
-          transform: scale(0.6);
-        }
-        &::after {
-          display: block;
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          color: #fff;
-          opacity: 0.8;
-          text-align: center;
-          font-size: 1.2em;
-          margin-bottom: 0.7em;
-          text-shadow: 0 0 50px #000, 0 0 50px #000, 0 0 50px #000,
-            0 0 50px #000;
-        }
-        @for $i from 2 through 8 {
-          &:nth-child(#{$i}) {
-            background-image: url($avatar+$i*3);
-          }
-          &:nth-child(#{$i})::before {
-            content: '\00a0 ';
-            background: url($avatar+$i) center / cover no-repeat;
-          }
-        }
-
-        &:nth-child(1) {
-          background-image: url(../assets/emin.jpg);
-        }
-      }
-    }
-  } //stori wrapper
 
   .fb-send {
     display: flex;
@@ -240,7 +158,125 @@ $gray: #ececf0;
   }
 } // fb middle
 
-// post scss -------------------------------
+//____story____________
+
+.story-wrapper {
+  margin: 1em;
+  overflow: hidden;
+  height: 18.5em;
+  opacity: 0.86;
+  h1 {
+    display: flex;
+    align-items: center;
+    font-weight: 100;
+    font-size: 1.5em;
+    opacity: 0.7;
+    &::after {
+      content: 'See All';
+      display: block;
+      font-size: 11px;
+      color: $facebook-blue;
+      margin-left: auto;
+    }
+  }
+} //stori wrapper
+
+ul.stories {
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+li.story {
+  box-shadow: 0 2px 3px -1px rgb(139, 139, 139),
+    inset 0 0 0 100em rgba(0, 0, 0, 0.3);
+  border-radius: 0.8em;
+  display: inline-block;
+  list-style: none;
+  width: 10em;
+  height: 16em;
+  margin: 0.3em;
+  background: url(../assets/emin.jpg) center / cover no-repeat;
+  overflow: hidden;
+  position: relative;
+  font-family: Helvetica, sans-serif;
+
+  &::before {
+    content: ' ';
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    border-radius: 2em;
+    border: 2px solid rgb(255, 255, 255);
+    color: #fff;
+    font-weight: 100;
+    box-shadow: inset 0 0 0 2em rgba(20, 20, 20, 0.2);
+    margin: 0em;
+    text-align: center;
+    line-height: 2em;
+    font-size: 3em;
+    transform: scale(0.6);
+    background: url(../assets/facebook/70/1.jpg) center / cover no-repeat;
+  }
+
+  &:nth-child(2) {
+    background-image: url(../assets/facebook/1.jpg);
+    &::before {
+      background-image: url(../assets/facebook/70/1.jpg);
+    }
+  }
+
+  &:nth-child(3) {
+    background-image: url(../assets/facebook/2.jpg);
+    &::before {
+      background-image: url(../assets/facebook/70/2.jpg);
+    }
+  }
+
+  &:nth-child(4) {
+    background-image: url(../assets/facebook/3.jpg);
+    &::before {
+      background-image: url(../assets/facebook/70/3.jpg);
+    }
+  }
+
+  &:nth-child(5) {
+    background-image: url(../assets/facebook/4.jpg);
+    &::before {
+      background-image: url(../assets/facebook/70/4.jpg);
+    }
+  }
+
+  &:nth-child(6) {
+    background-image: url(../assets/facebook/5.jpg);
+    &::before {
+      background-image: url(../assets/facebook/70/5.jpg);
+    }
+  }
+
+  &:nth-child(7) {
+    background-image: url(../assets/facebook/6.jpg);
+    &::before {
+      background-image: url(../assets/facebook/70/6.jpg);
+    }
+  }
+
+  &:nth-child(8) {
+    background-image: url(../assets/facebook/7.jpg);
+    &::before {
+      background-image: url(../assets/facebook/70/7.jpg);
+    }
+  }
+
+  &:nth-child(1) {
+    background-image: url(../assets/emin.jpg);
+    &::before {
+      content: ' + ';
+      background-image: none;
+    }
+  }
+}
+// _______post_________
 .preloader {
   height: 300px;
   background-image: linear-gradient(

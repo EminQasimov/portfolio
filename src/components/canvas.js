@@ -18,7 +18,9 @@ export default function Canvas() {
       canvas.width = w;
       canvas.height = h;
 
-      isNotMobile() && !Emoji.exist && Emoji.generate(canvas);
+      if (isNotMobile() && !Emoji.exist) {
+        Emoji.generate(canvas);
+      }
       Emoji.exist && Emoji.handleResize(w, h);
     }
 
