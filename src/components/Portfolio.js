@@ -4,52 +4,56 @@ import Slider from 'react-slick';
 
 const framesData = [
   {
-    url: 'https://eminqasimov.github.io/loginsignupform',
-    title: 'Login and Sign up Form UI animation'
+    U: 'https://eminqasimov.github.io/loginsignupform',
+    T: 'Login and Sign up Form UI animation'
   },
   {
-    url: 'https://eminqasimov.github.io/colorui',
-    title: 'Color UI Landing Page'
+    U: 'https://eminqasimov.github.io/colorui',
+    T: 'Color UI Landing Page'
   },
   {
-    url: 'https://eminqasimov.github.io/opening-3d-box-animation',
-    title: 'Opening 3D cardboard Box Animation'
+    U: 'https://eminqasimov.github.io/hospital-dashboard-with-antdui',
+    T: 'Hospital dashboard UI with Ant Design UI kit'
   },
   {
-    url: 'https://eminqasimov.github.io/3dCarAnimation',
-    title: '3D Car Animation'
+    U: 'https://eminqasimov.github.io/opening-3d-box-animation',
+    T: 'Opening 3D cardboard Box Animation'
   },
   {
-    url: 'https://eminqasimov.github.io/striped-background',
-    title: 'Striped Background Effect With CSS'
+    U: 'https://eminqasimov.github.io/3dCarAnimation',
+    T: '3D Car Animation'
   },
   {
-    url: 'https://eminqasimov.github.io/flag-animation',
-    title: 'Interactive Flag Animation '
+    U: 'https://eminqasimov.github.io/striped-background',
+    T: 'Striped Background Effect With CSS'
   },
   {
-    url: 'https://eminqasimov.github.io/pure-css-photo-collage',
-    title: 'Responsive Pure CSS Photo Collage'
+    U: 'https://eminqasimov.github.io/flag-animation',
+    T: 'Interactive Flag Animation '
   },
   {
-    url: 'https://codepen.io/eminqasimov/full/yrzZwJ',
-    title: 'mask login ui'
+    U: 'https://eminqasimov.github.io/pure-css-photo-collage',
+    T: 'Responsive Pure CSS Photo Collage'
   },
   {
-    url: 'https://codepen.io/eminqasimov/full/eamvrQ',
-    title: 'Pie Image Carousel'
+    U: 'https://codepen.io/eminqasimov/full/yrzZwJ',
+    T: 'mask login ui'
   },
   {
-    url: 'https://player.vimeo.com/video/343181095',
-    title: 'Rolling Movies Carousel'
+    U: 'https://codepen.io/eminqasimov/full/eamvrQ',
+    T: 'Pie Image Carousel'
   },
   {
-    url: 'https://player.vimeo.com/video/343177258',
-    title: 'new Facebook Design'
+    U: 'https://player.vimeo.com/video/343181095',
+    T: 'Rolling Movies Carousel'
+  },
+  {
+    U: 'https://player.vimeo.com/video/343177258',
+    T: 'new Facebook Design'
   }
 ];
 
-const Frame = ({ url, title }) => {
+const Frame = ({ U, T }) => {
   const [loading, setLoading] = React.useState(true);
 
   return (
@@ -63,13 +67,13 @@ const Frame = ({ url, title }) => {
         overflow: 'hidden'
       }}
     >
-      {loading ? <div className="spinner" /> : null}
+      {loading && <div className="spinner" />}
 
       <iframe
         className="myTarget"
-        src={url}
+        src={U}
         frameBorder="0"
-        title={title}
+        title={T}
         loading="lazy"
         style={{
           width: '100%',
@@ -103,13 +107,13 @@ class Sites extends Component {
       cssEase: 'linear',
       pauseOnHover: true,
       afterChange: index => {
-        this.props.slideChanged(framesData[index].url);
+        this.props.slideChanged(framesData[index].U);
       }
     };
     return (
       <Slider ref={c => (this.slider = c)} {...settings}>
         {framesData.map(frame => (
-          <Frame {...frame} key={frame.url} />
+          <Frame {...frame} key={frame.U} />
         ))}
       </Slider>
     );
@@ -121,10 +125,9 @@ export default class Portfolio extends Component {
     super(props);
     this.child = React.createRef();
     this.state = {
-      url: framesData[0].url
+      url: framesData[0].U
     };
   }
-
   onPrev = () => {
     this.child.current.prev();
   };
@@ -133,12 +136,6 @@ export default class Portfolio extends Component {
   };
   handleSlideChange = url => {
     this.setState({ url });
-  };
-  buttonEnter = () => {
-    // this.child.current.pause()
-  };
-  buttonLeave = () => {
-    // this.child.current.play()
   };
   focusHandler = (url = 'eminqasimov.xyz') => {
     window.open(url, '_blank');
@@ -160,8 +157,6 @@ export default class Portfolio extends Component {
             url={this.state.url}
             leftClickHandler={this.onPrev}
             rightClickHandler={this.onNext}
-            buttonEnter={this.buttonEnter}
-            buttonLeave={this.buttonLeave}
             focusHandler={this.focusHandler}
           >
             <Sites ref={this.child} slideChanged={this.handleSlideChange} />

@@ -5,7 +5,6 @@ import Emoji from './Emoji';
 
 export default function Canvas() {
   let inter,
-    down,
     X,
     Y,
     canvasRef = useRef();
@@ -17,48 +16,34 @@ export default function Canvas() {
         h = canvas.offsetHeight;
       canvas.width = w;
       canvas.height = h;
-
-      if (isNotMobile() && !Emoji.exist) {
+      if (isNotMobile() && Emoji.isFirst) {
         Emoji.generate(canvas);
       }
       Emoji.exist && Emoji.handleResize(w, h);
     }
-
     resizeCanvas();
-
     window.addEventListener('resize', resizeCanvas);
+
     return () => {
       window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
 
-  const handleMouseDown = e => {
-    if (Emoji.exist) {
-      down = true;
-      let { x, y } = getMousePos(canvasRef.current, e.nativeEvent);
-      X = x;
-      Y = y;
-      inter = setInterval(() => {
-        Emoji.add(X, Y);
-      }, 100);
-    }
-  };
-
   const handleMouseMove = e => {
-    if (down) {
-      let { x, y } = getMousePos(canvasRef.current, e.nativeEvent);
+    if (isNotMobile() && Emoji.exist) {
+      let { x, y } = getMousePos(canvasRef.current, e);
       X = x;
       Y = y;
+
+      Emoji.add(X, Y);
     }
   };
 
   return (
     <canvas
       ref={canvasRef}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={() => {
-        down = false;
+      onMouseMove={e => handleMouseMove(e.nativeEvent)}
+      onMouseLeave={() => {
         clearInterval(inter);
       }}
     >

@@ -5,33 +5,39 @@ import oopjs from '../assets/oopjs-min.jpg';
 import reactfirebase from '../assets/reactfirebase-min.png';
 import es8 from '../assets/es8-min.png';
 import antipattern from '../assets/antipattern.jpeg';
+import fp from '../assets/fp.png';
 
 const data = [
   {
     img: es8,
     title: 'ES2017 (ES8) ilə Javascript-ə gələn yeniliklər nələrdir?',
     date: 'Jun 19',
-    link:
-      '/es2017-es8-il%C9%99-javascript-%C9%99-g%C9%99l%C9%99n-yenilikl%C9%99r-n%C9%99l%C9%99rdir-a8b58c5cf52f'
+    link: '/es2017-es8-ilə-javascript-ə-gələn-yeniliklər-nələrdir-a8b58c5cf52f'
   },
   {
     img: reactfirebase,
     title: 'React app-ı Firebase-ə necə yükləmək (deploy) olar? ',
     date: 'Jun 18',
-    link:
-      '/react-js-app-%C4%B1-firebase-%C9%99-y%C3%BCkl%C9%99m%C9%99k-deploy-cc32d173d6fa'
+    link: '/react-js-app-ı-firebase-ə-yükləmək-deploy-cc32d173d6fa'
   },
-  {
-    img: oopjs,
-    title: 'Javascript-də OOP prinsipləri',
-    date: 'Jun 17',
-    link: '/javascript-d%C9%99-oop-prinsipl%C9%99ri-5d4484a8a981'
-  },
+
   {
     img: antipattern,
     title: 'React.js -də etdiyimiz səhvlər — Anti-pattern-lər',
     date: 'Jun 20',
     link: '/react-js-də-etdiyimiz-səhvlər-anti-pattern-lər-fb9eabe5c2a0'
+  },
+  {
+    img: oopjs,
+    title: 'Javascript-də OOP prinsipləri',
+    date: 'Jun 17',
+    link: '/javascript-də-oop-prinsipləri-5d4484a8a981'
+  },
+  {
+    img: fp,
+    title: 'Javascript-də Funksional Proqramlama',
+    date: 'Jun 23',
+    link: '/javascript-də-funksional-proqramlama-12adccc43f66'
   }
 ];
 

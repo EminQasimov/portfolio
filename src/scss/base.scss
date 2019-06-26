@@ -28,10 +28,10 @@ button {
   -webkit-touch-callout: none;
 }
 
-.scroll-wrapper {
+#root {
   width: 100vw;
   height: 100vh;
-  // overflow-x: hidden;
+  overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
@@ -47,6 +47,14 @@ main.main-wrapper {
   min-height: 100vh;
   width: 100%;
   padding: 0 2em;
+}
+
+.webp body {
+  background: #e91e63 url(../assets/bg-min.webp) 0px 0px / auto 102vh no-repeat
+    fixed;
+}
+.no-webp body {
+  background: #e91e63 url(../assets/bg.png) 0px 0px / auto 102vh no-repeat fixed;
 }
 
 .webp .bg {
@@ -86,6 +94,6 @@ main.main-wrapper {
   z-index: 10;
 }
 .contact {
-  background-color: #e91e63;
+  background-color: #e91e63 !important;
   z-index: 11;
 }

@@ -7,6 +7,7 @@ export function rndm(min, max) {
   if (1 > num && num >= 0) num = 1;
   return num;
 }
+
 export function isNotMobile() {
   if (window.innerWidth >= 1025 && window.innerHeight >= 600) {
     return true;
@@ -14,6 +15,7 @@ export function isNotMobile() {
     return false;
   }
 }
+
 export function getMousePos(canvas, evt) {
   var rect = canvas.getBoundingClientRect(), // abs. size of element
     scaleX = canvas.width / rect.width, // relationship bitmap vs. element for X

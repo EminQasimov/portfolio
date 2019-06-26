@@ -7,19 +7,6 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Sticky from 'react-sticky-fill';
 
-// import firebase from "./firebaseConfig"
-// const articles = firebase.database().ref("/articles")
-
-// articles.push({
-//   title: "how it iw works",
-//   author: "men",
-//   content: "bla blah blah",
-// }).then((data)=>{
-//   console.log("datam", data)
-// }).catch((err)=>{
-//   console.log(err)
-// })
-
 // A long cache lifetime can speed up repeat visits to your page sonda cache et
 
 const isSmallAndBig = () => {
@@ -55,51 +42,47 @@ export default class App extends Component {
             <div className="spinner" />
           </div>
         ) : null}
-        <div className="scroll-wrapper">
-          <main
-            className={'main-wrapper ' + (this.state.loading ? '' : 'dance')}
-          >
-            <Sticky>
-              <Intro />
-            </Sticky>
+        <main className={'main-wrapper ' + (this.state.loading ? '' : 'dance')}>
+          <Sticky>
+            <Intro />
+          </Sticky>
 
-            <Sticky style={{ zIndex: this.state.size ? '999' : '1' }}>
-              <Social />
-            </Sticky>
+          <Sticky style={{ zIndex: this.state.size ? '999' : '1' }}>
+            <Social />
+          </Sticky>
 
-            <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
-              <section className="stuck" />
-            </Sticky>
+          <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
+            <section className="stuck" />
+          </Sticky>
 
-            <Sticky>
-              <Blog />
-            </Sticky>
+          <Sticky>
+            <Blog />
+          </Sticky>
 
-            <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
-              <section className="stuck" />
-            </Sticky>
+          <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
+            <section className="stuck" />
+          </Sticky>
 
-            <Sticky style={{ zIndex: this.state.size ? '999' : '1' }}>
-              <Protfolio />
-            </Sticky>
+          <Sticky style={{ zIndex: this.state.size ? '999' : '1' }}>
+            <Protfolio />
+          </Sticky>
 
-            <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
-              <section className="stuck" />
-            </Sticky>
+          <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
+            <section className="stuck" />
+          </Sticky>
 
-            <Sticky>
-              <Skills />
-            </Sticky>
+          <Sticky>
+            <Skills />
+          </Sticky>
 
-            <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
-              <section className="stuck" />
-            </Sticky>
+          <Sticky style={{ zIndex: '0', pointerEvents: 'none' }}>
+            <section className="stuck" />
+          </Sticky>
 
-            <Sticky>
-              <Contact />
-            </Sticky>
-          </main>
-        </div>
+          <Sticky>
+            <Contact />
+          </Sticky>
+        </main>
       </>
     );
   }

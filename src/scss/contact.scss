@@ -1,3 +1,76 @@
-.contact{
-    height: 100vh;
+.contact {
+  height: 100vh;
+  .container {
+    padding: 4em;
+    padding-left: 40%;
+
+    height: 100%;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+  }
+  .about {
+    font-size: 2em;
+  }
+  .cv-buttons {
+    font-size: 10px;
+  }
+  .contact-text {
+    margin: 1em 0;
+    li {
+      margin: 10px 0;
+      a {
+        color: $white;
+      }
+    }
+  }
+  .social-buttons {
+    font-size: 0.5em;
+    li {
+      background: $yellow;
+      color: $black;
+      &:hover {
+        cursor: pointer;
+        opacity: 1;
+        background: $black;
+        color: $yellow;
+      }
+    }
+  }
+}
+.contact-about {
+  flex: 1;
+}
+
+.contact-info {
+  flex: 1;
+  margin-top: auto;
+}
+
+.contact-about > p,
+.contact-info > p {
+  font-size: 2.5em;
+  color: $white;
+  opacity: 0.8;
+  font-weight: 400;
+  text-align: right;
+  @media (max-width: 768px) {
+    font-size: 1.5em;
+  }
+}
+.contact-about > h1,
+.contact-info > h1 {
+  font-size: 5em;
+  font-weight: 700;
+  color: $white;
+  text-align: right;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  @media (max-width: 768px) {
+    font-size: 3.5em;
+    margin-top: 0px;
+  }
+}
+.contact-info-list {
+  font-size: 2em;
 }

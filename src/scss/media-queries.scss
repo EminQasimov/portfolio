@@ -1,4 +1,7 @@
 @media screen and (min-height: 1025px) {
+  body {
+    background: #fff !important;
+  }
   main.main-wrapper > div {
     position: relative !important;
   }
@@ -14,8 +17,13 @@
   .stuck {
     display: none !important;
   }
-  .bg {
+  .bg:not(.contact) {
     background-image: none !important;
+  }
+  .contact.bg {
+    background-size: auto 102%;
+    background-attachment: unset !important;
+    background-position: 0 0;
   }
   .intro {
     background: url(../assets/bg.png) 0px 0px / auto 102% no-repeat,
@@ -34,17 +42,30 @@
       height: 100% !important;
     }
   }
+  .skills {
+    height: auto !important;
+    min-height: 900px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   main.main-wrapper > div {
     position: relative !important;
   }
-  .bg {
+  .bg:not(.contact) {
     background-image: none !important;
+  }
+  .contact.bg {
+    background-size: auto 102%;
+    background-attachment: unset !important;
+    background-position: 0 0;
   }
   .skills {
     height: auto;
+    .skill {
+      width: 100%;
+      margin: 2em 0;
+    }
   }
   .intro {
     background: url(../assets/bg.png) 0px 0px / auto 102% no-repeat,
@@ -90,6 +111,9 @@
   .portfolio {
     top: 0;
   }
+  .contact {
+    font-size: 0.8em;
+  }
 }
 
 @media screen and (max-width: 578px) {
@@ -102,6 +126,11 @@
       #fff800 100%
     ) !important;
   }
+  .contact {
+    .container {
+      padding: 3em !important;
+    }
+  }
 }
 
 //remove all thing in edge sticky
@@ -113,11 +142,12 @@
     position: relative !important;
   }
   main.main-wrapper > div > section {
-    height: 900px;
+    height: 100vh;
   }
   .blog {
     height: 800px !important;
   }
+
   .container {
     min-height: 100% !important;
   }

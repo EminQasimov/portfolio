@@ -9,6 +9,8 @@ import { Twitter } from 'styled-icons/feather/Twitter';
 import { Codepen } from 'styled-icons/feather/Codepen';
 import { MediumOld } from 'styled-icons/boxicons-logos/MediumOld';
 
+import cv from '../assets/EminQasimovCV.pdf';
+
 export default function Intro() {
   return (
     <section className="intro">
@@ -17,9 +19,6 @@ export default function Intro() {
           <div>
             <ul className="menu-list">
               <li>
-                <a href="#two">About</a>
-              </li>
-              <li>
                 <a href="#blog">Blog</a>
               </li>
               <li>
@@ -27,6 +26,9 @@ export default function Intro() {
               </li>
               <li>
                 <a href="#skills">Skills</a>
+              </li>
+              <li>
+                <a href="#about">About</a>
               </li>
             </ul>
           </div>
@@ -37,12 +39,21 @@ export default function Intro() {
           <div>
             <div className="cv-buttons">
               <button className="view-cv">
-                <Document /> view my cv
+                <a
+                  href="#viewcv"
+                  onClick={e => {
+                    e.preventDefault();
+                    window.open(cv, 'Emin Qasimov CV');
+                  }}
+                >
+                  <Document /> view my cv
+                </a>
               </button>
               <span> or </span>
               <button className="download-cv">
-                <Download />
-                download
+                <a href={cv} download>
+                  <Download /> download
+                </a>
               </button>
             </div>
           </div>

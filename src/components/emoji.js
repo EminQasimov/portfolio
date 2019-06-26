@@ -35,7 +35,7 @@ const checkOverBound = (x, y, r) => {
 
 export default class Emoji {
   constructor(cropX, cropY, x, y, dx, dy) {
-    let size = rndm(2, 3.8);
+    let size = rndm(1.8, 4.2);
     this.originalSize = size;
 
     let r = floor(W3 / 20 / 2);
@@ -101,11 +101,12 @@ export default class Emoji {
     this.x += this.dx / 2;
     this.y += this.dy / 2;
     this.alfa += this.alfaInc;
+
     if (this.size <= this.originalSize) {
       this.size = this.originalSize;
       this.r = floor(W3 / this.size / 2);
     } else {
-      this.size -= 0.3;
+      this.size -= 0.5;
       this.r = floor(W3 / this.size / 2);
     }
   }
@@ -159,31 +160,22 @@ Emoji.add = (x, y) => {
     )
   ); // cropX, cropY, x, y
 
-  Emoji.emojiList.push(
-    new Emoji(
-      emojiCrops[(newEmojiInc + 1) % 6].i,
-      emojiCrops[(newEmojiInc + 1) % 6].k,
-      x,
-      y,
-      rndm(-3, 3),
-      rndm(0, -10)
-    )
-  );
   setTimeout(() => {
     Emoji.emojiList.shift();
-    Emoji.emojiList.shift();
+    // Emoji.emojiList.shift()
   }, 1000);
 
   newEmojiInc++;
 };
 Emoji.exist = false;
+Emoji.isFirst = true;
 
-Emoji.generate = (canvas, count = 13) => {
+Emoji.generate = (canvas, count = 22) => {
   Emoji.emojiList = []; //reset list
-  Emoji.exist = true;
   CTX = canvas.getContext('2d');
   W = canvas.width;
   H = canvas.height;
+  Emoji.isFirst = false;
 
   async function createVideoFrames() {
     let [frames, w, h] = await extractFramesFromVideo(videoSrc, 8); // offscreen canvas
@@ -201,8 +193,7 @@ Emoji.generate = (canvas, count = 13) => {
       }
       FRAME = FRAMES[currentFrame++];
     }, 70);
-
-    console.log(frames, w, h);
+    Emoji.exist = true;
   }
   createVideoFrames();
 };
