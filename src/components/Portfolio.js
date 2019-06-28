@@ -44,11 +44,11 @@ const framesData = [
     T: 'Pie Image Carousel'
   },
   {
-    U: 'https://player.vimeo.com/video/343181095',
+    U: 'https://player.vimeo.com/video/343181095?loop=1',
     T: 'Rolling Movies Carousel'
   },
   {
-    U: 'https://player.vimeo.com/video/343177258',
+    U: 'https://player.vimeo.com/video/343177258?loop=1',
     T: 'new Facebook Design'
   }
 ];

@@ -181,7 +181,9 @@ $firefox-blue: #008afb;
       opacity: 0.2;
       line-height: 3em;
       margin: 0.4em -3em;
-
+      @media screen and (max-width: 500px) {
+        display: none !important;
+      }
       svg {
         width: 2em;
         color: darken($firefox-blue, 13%);

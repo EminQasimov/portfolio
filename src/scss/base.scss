@@ -49,11 +49,11 @@ main.main-wrapper {
   padding: 0 2em;
 }
 
-.webp body {
+.webp .show-bg {
   background: #e91e63 url(../assets/bg-min.webp) 0px 0px / auto 102vh no-repeat
     fixed;
 }
-.no-webp body {
+.no-webp .show-bg {
   background: #e91e63 url(../assets/bg.png) 0px 0px / auto 102vh no-repeat fixed;
 }
 

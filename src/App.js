@@ -7,8 +7,6 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Sticky from 'react-sticky-fill';
 
-// A long cache lifetime can speed up repeat visits to your page sonda cache et
-
 const isSmallAndBig = () => {
   if (window.innerWidth < 1024 || window.innerHeight > 1024) {
     return true;
@@ -29,6 +27,7 @@ export default class App extends Component {
   componentDidMount() {
     window.addEventListener('load', () => {
       this.setState({ loading: false });
+      document.body.classList.add('show-bg');
     });
     window.addEventListener('resize', () => {
       this.setState({ size: isSmallAndBig() });
@@ -37,11 +36,11 @@ export default class App extends Component {
   render() {
     return (
       <>
-        {this.state.loading ? (
+        {this.state.loading && (
           <div className="spinner-wrapper">
             <div className="spinner" />
           </div>
-        ) : null}
+        )}
         <main className={'main-wrapper ' + (this.state.loading ? '' : 'dance')}>
           <Sticky>
             <Intro />

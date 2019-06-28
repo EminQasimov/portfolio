@@ -46,9 +46,8 @@ const Post = ({ postDate, video }) => {
           ref={fbVideo}
           data-href={video}
           data-show-text="true"
-          data-width="auto"
-          // data-autoplay="false"
-          // data-allowfullscreen="false"
+          data-width={window.innerWidth >= 600 ? 'auto' : 350}
+          data-autoplay="false"
         />
       </div>
     </div>

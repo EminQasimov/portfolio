@@ -33,10 +33,11 @@ export default function Social() {
             url="facebook.com/emin.qasimovdia"
             style={{
               width: '100%',
-              height: '105%',
+              height: 'calc(100% + 4em)',
               borderRadius: '0',
               position: 'relative',
               top: '-4em',
+              marginTop: '1px',
               left: '0'
             }}
             tabbar={false}

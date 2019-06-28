@@ -14,6 +14,11 @@
   .container {
     min-height: 100% !important;
   }
+  .contact {
+    .container {
+      min-height: 900px !important;
+    }
+  }
   .stuck {
     display: none !important;
   }
@@ -49,6 +54,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+  body {
+    background: #fff !important;
+  }
   main.main-wrapper > div {
     position: relative !important;
   }
@@ -59,6 +67,7 @@
     background-size: auto 102%;
     background-attachment: unset !important;
     background-position: 0 0;
+    height: auto !important;
   }
   .skills {
     height: auto;
@@ -127,12 +136,21 @@
     ) !important;
   }
   .contact {
+    background: #e91e63 !important;
     .container {
       padding: 3em !important;
     }
   }
 }
 
+@media screen and (max-height: 400px) {
+  .intro {
+    font-size: 7px !important;
+  }
+  .portfolio {
+    height: calc(100vh + 40em) !important;
+  }
+}
 //remove all thing in edge sticky
 @supports (-ms-ime-align: auto) {
   .tab-buttons span {
