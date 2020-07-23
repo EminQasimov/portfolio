@@ -1,6 +1,6 @@
-## my portfolio website link https://eminqasimov.xyz/
-[![me.png](https://i.postimg.cc/9fCzqy0Z/me.png)](https://eminqasimov.xyz/)
+## my portfolio website link https://emin-qasimov.web.app
+[![me.png](https://i.postimg.cc/9fCzqy0Z/me.png)](https://emin-qasimov.web.app/)
 
-[![me2.png](https://i.postimg.cc/RCKFGPtK/me2.png)](https://eminqasimov.xyz/)
+[![me2.png](https://i.postimg.cc/RCKFGPtK/me2.png)](https://emin-qasimov.web.app/)
 
-visit https://eminqasimov.xyz/
+visit https://emin-qasimov.web.app
